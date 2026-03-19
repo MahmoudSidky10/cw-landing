@@ -45,8 +45,8 @@
                     <path d="M680 290L197.153 -107L-111 -80.2897L-84.2585 149.138L680 290Z" fill="url(#paint0_radial_10407_1304)" />
                     <defs>
                         <radialGradient id="paint0_radial_10407_1304" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-111 -107) rotate(30.4147) scale(850.28 171.195)">
-                            <stop stop-color="#C7F32F" offset="0" />
-                            <stop stop-color="#C7F32F" stop-opacity="0.6" offset="0" />
+                            <stop stop-color="#0166ba" offset="0" />
+                            <stop stop-color="#0166ba" stop-opacity="0.6" offset="0" />
                             <stop offset="0.986083" stop-color="#05050B" stop-opacity="0" />
                         </radialGradient>
                     </defs>

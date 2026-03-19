@@ -9090,11 +9090,11 @@ small,
     --bs-box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 [data-bs-theme=dark][data-theme=demo] {
-    --bs-primary: #c7f32f;
-    --bs-primary-rgb: 199, 243, 47;
-    --bs-primary-text-emphasis: #f9feea;
-    --bs-primary-bg-subtle: #79941d;
-    --bs-primary-border-subtle: #79941d;
+    --bs-primary: #0166ba;
+    --bs-primary-rgb: 1, 102, 186;
+    --bs-primary-text-emphasis: #01b7f7;
+    --bs-primary-bg-subtle: #01456e;
+    --bs-primary-border-subtle: #01456e;
 }
 [data-bs-theme=dark][data-theme=home-2] {
     --bs-primary: #6328ff;
@@ -9104,11 +9104,11 @@ small,
     --bs-primary-border-subtle: #15063f;
 }
 [data-bs-theme=dark][data-theme=home-3] {
-    --bs-primary: #c7f32f;
-    --bs-primary-rgb: 199, 243, 47;
-    --bs-primary-text-emphasis: #f6ffdb;
-    --bs-primary-bg-subtle: #79941d;
-    --bs-primary-border-subtle: #79941d;
+    --bs-primary: #0166ba;
+    --bs-primary-rgb: 1, 102, 186;
+    --bs-primary-text-emphasis: #01b7f7;
+    --bs-primary-bg-subtle: #01456e;
+    --bs-primary-border-subtle: #01456e;
 }
 [data-bs-theme=dark][data-theme=home-4] {
     --bs-primary: #5c65ff;
@@ -9318,11 +9318,11 @@ small,
     --bs-box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 [data-bs-theme=light][data-theme=demo] {
-    --bs-primary: #c7f32f;
-    --bs-primary-rgb: 199, 243, 47;
-    --bs-primary-text-emphasis: #79941d;
-    --bs-primary-bg-subtle: #f9feea;
-    --bs-primary-border-subtle: #f9feea;
+    --bs-primary: #0166ba;
+    --bs-primary-rgb: 1, 102, 186;
+    --bs-primary-text-emphasis: #01b7f7;
+    --bs-primary-bg-subtle: #e6f4ff;
+    --bs-primary-border-subtle: #e6f4ff;
 }
 [data-bs-theme=light][data-theme=home-2] {
     --bs-primary: #6328ff;
@@ -9332,11 +9332,11 @@ small,
     --bs-primary-border-subtle: #efeaff;
 }
 [data-bs-theme=light][data-theme=home-3] {
-    --bs-primary: #c7f32f;
-    --bs-primary-rgb: 199, 243, 47;
-    --bs-primary-text-emphasis: #79941d;
-    --bs-primary-bg-subtle: #f6ffdb;
-    --bs-primary-border-subtle: #f6ffdb;
+    --bs-primary: #0166ba;
+    --bs-primary-rgb: 1, 102, 186;
+    --bs-primary-text-emphasis: #01b7f7;
+    --bs-primary-bg-subtle: #e6f4ff;
+    --bs-primary-border-subtle: #e6f4ff;
 }
 [data-bs-theme=light][data-theme=home-4] {
     --bs-primary: #5c65ff;

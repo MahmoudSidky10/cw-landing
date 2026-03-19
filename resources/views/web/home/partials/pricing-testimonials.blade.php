@@ -101,7 +101,7 @@
                                 </a>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="217" height="232" viewBox="0 0 217 232" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                     <g filter="url(#filter0_f_10155_7785)">
-                                        <circle cx="58" cy="73" r="99" fill="#C7F32F" fill-opacity="0.2" />
+                                        <circle cx="58" cy="73" r="99" fill="#0166ba" fill-opacity="0.2" />
                                     </g>
                                     <defs>
                                         <filter id="filter0_f_10155_7785" x="-101" y="-86" width="318" height="318" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

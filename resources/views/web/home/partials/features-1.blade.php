@@ -30,7 +30,7 @@
                                 </div>
                                 <svg width="760" height="503" viewBox="0 0 760 503" fill="none" xmlns="http://www.w3.org/2000/svg" class="position-absolute start-50 bottom-0 translate-middle-x pointer-none">
                                     <g filter="url(#filter0_f_10139_1212)">
-                                        <ellipse cx="377.847" cy="489.058" rx="350.847" ry="211.71" fill="#C7F32F" fill-opacity="0.6" />
+                                        <ellipse cx="377.847" cy="489.058" rx="350.847" ry="211.71" fill="#0166ba" fill-opacity="0.6" />
                                     </g>
                                     <defs>
                                         <filter id="filter0_f_10139_1212" x="-250.35" y="-0.00161743" width="1256.39" height="978.12" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -256,8 +256,8 @@
                                             <feGaussianBlur stdDeviation="15" result="effect1_foregroundBlur_10395_1229" />
                                         </filter>
                                         <radialGradient id="paint0_radial_10395_1229" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-4.49997 13) rotate(43.4003) scale(658.573 139.496)">
-                                            <stop stop-color="#C7F32F" offset="0" />
-                                            <stop stop-color="#C7F32F" stop-opacity="0.6" offset="0" />
+                                            <stop stop-color="#0166ba" offset="0" />
+                                            <stop stop-color="#0166ba" stop-opacity="0.6" offset="0" />
                                             <stop offset="0.986083" stop-color="#05050B" stop-opacity="0" />
                                         </radialGradient>
                                     </defs>
@@ -300,7 +300,7 @@
                                                 </div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                                     <g filter="url(#filter0_f_10395_2005)">
-                                                        <circle cx="13.5" cy="15.5" r="23.5" fill="#C7F32F" />
+                                                        <circle cx="13.5" cy="15.5" r="23.5" fill="#0166ba" />
                                                     </g>
                                                     <defs>
                                                         <filter id="filter0_f_10395_2005" x="-70" y="-68" width="167" height="167" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -318,7 +318,7 @@
                                                 </div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                                     <g filter="url(#filter0_f_10395_2000)">
-                                                        <circle cx="13.5" cy="15.5" r="23.5" fill="#C7F32F" />
+                                                        <circle cx="13.5" cy="15.5" r="23.5" fill="#0166ba" />
                                                     </g>
                                                     <defs>
                                                         <filter id="filter0_f_10395_2000" x="-70" y="-68" width="167" height="167" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -368,8 +368,8 @@
                                             <feGaussianBlur stdDeviation="15" result="effect1_foregroundBlur_10395_1234" />
                                         </filter>
                                         <radialGradient id="paint0_radial_10395_1234" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(6.99999 21) rotate(35.3968) scale(921.905 204.254)">
-                                            <stop stop-color="#C7F32F" offset="0" />
-                                            <stop stop-color="#C7F32F" stop-opacity="0.6" offset="0" />
+                                            <stop stop-color="#0166ba" offset="0" />
+                                            <stop stop-color="#0166ba" stop-opacity="0.6" offset="0" />
                                             <stop offset="0.986083" stop-color="#05050B" stop-opacity="0" />
                                         </radialGradient>
                                     </defs>

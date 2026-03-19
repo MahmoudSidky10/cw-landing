@@ -16,7 +16,7 @@
                             </div>
                             <svg width="1320" height="237" viewBox="0 0 1320 237" fill="none" xmlns="http://www.w3.org/2000/svg" class="position-absolute start-50 top-0 translate-middle-x z-n1 pointer-none filter-blur-50">
                                 <g filter="url(#filter0_f_10155_8838)">
-                                    <path d="M552 -13H843L1235.5 87L681.5 26.5L139.5 87L552 -13Z" fill="#C7F32F" />
+                                    <path d="M552 -13H843L1235.5 87L681.5 26.5L139.5 87L552 -13Z" fill="#0166ba" />
                                 </g>
                                 <defs>
                                     <filter id="filter0_f_10155_8838" x="-10.5" y="-163" width="1396" height="400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
