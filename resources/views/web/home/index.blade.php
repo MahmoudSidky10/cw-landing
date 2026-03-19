@@ -12,7 +12,6 @@
             @include('web.home.partials.features-1')
             @include('web.home.partials.features-2')
             @include('web.home.partials.integrations')
-            @include('web.home.partials.pricing-testimonials')
             @include('web.home.partials.faq')
             @include('web.home.partials.cta')
             @include('web.layout.footer')

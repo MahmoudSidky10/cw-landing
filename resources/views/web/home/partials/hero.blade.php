@@ -12,7 +12,7 @@
                                     </div>
                                     <h1 class="mb-30 text-light gsap-text-animation" data-delay="0.75"
                                         data-split-type="lines"> The world's most widely adopted <span
-                                            class="text-clip--primary">AI developer tool</span>
+                                            class="text-clip--primary">Cyperwatch360</span>
                                     </h1>
                                 </div>
                             </div>

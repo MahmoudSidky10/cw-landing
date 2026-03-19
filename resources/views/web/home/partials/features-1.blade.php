@@ -4,7 +4,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 col-xl-7">
-                                <h2 class="mb-0 text-light text-center text-md-start overflow-hidden gsap-text-animation" data-scroll-trigger="true" data-split-type="lines"> Unlock the full power of <span class="text-clip--primary">AI-driven coding</span>
+                                <h2 class="mb-0 text-light text-center text-md-start overflow-hidden gsap-text-animation" data-scroll-trigger="true" data-split-type="lines"> Unlock the full power of <span class="text-clip--primary">Cyperwatch360</span>
                                 </h2>
                             </div>
                         </div>
