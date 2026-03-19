@@ -24,7 +24,7 @@
                                 <div class="col-12">
                                     <div class="hero-5__hero-img gsap-fade-in" data-delay="1.25" data-y="15">
                                         <div class="text-center position-relative z-1">
-                                            <img src="{{ asset('assets/img/logo/linkid-in-person.jpg') }}" alt="image"
+                                            <img src="{{ asset('assets/img/hero-0-0.jpg') }}" alt="image"
                                                 class="img-fluid">
                                             <div class="hero-5__circle">
                                                 <span class="hero-5__circle-blurr"></span>
