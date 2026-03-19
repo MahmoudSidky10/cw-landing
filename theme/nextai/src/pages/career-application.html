@@ -1,0 +1,111 @@
+---
+title: NextAi - SAAS, AI & Tech Startup HTML Template
+navbar: true
+primary-header: "primary-header--dark primary-header--fixed primary-header--boxed top-md-3 primary-header-crossed:top-0
+primary-header-crossed:full-dark"
+logo-light: logo-light.png
+logo-dark: logo-light.png
+layout: default
+---
+
+<!-- Banner Section -->
+{{> "banner-5"}}
+<!-- Banner Section End -->
+
+<!-- Career Application -->
+<div class="section-space-y bg-body-tertiary">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="bg-body rounded-3 p-4 p-md-6 p-xl-12">
+					<h6 class="mb-6">Personal Information</h6>
+					<form class="row g-4">
+						<div class="col-12">
+							<label for="full-name" class="form-label fw-medium fs-14">
+								Full Name
+								<span class="text-danger">*</span>
+							</label>
+							<input
+								type="text"
+								class="form-control"
+								id="full-name"
+								placeholder="First Name"
+							/>
+						</div>
+						<div class="col-12">
+							<label for="email-address" class="form-label fw-medium fs-14">
+								Email
+								<span class="text-danger">*</span>
+							</label>
+							<input
+								type="text"
+								class="form-control"
+								id="email-address"
+								placeholder="Email Address"
+							/>
+						</div>
+						<div class="col-12">
+							<label for="phone-number" class="form-label fw-medium fs-14">
+								Mobile No.
+								<span class="text-danger">*</span>
+							</label>
+							<input
+								type="text"
+								class="form-control"
+								id="phone-number"
+								placeholder="+8801 794 840 884"
+							/>
+						</div>
+						<div class="col-12">
+							<label for="position" class="form-label fw-medium fs-14">
+								Position
+								<span class="text-danger">*</span>
+							</label>
+							<input
+								type="text"
+								class="form-control"
+								id="position"
+								placeholder="Developer"
+							/>
+						</div>
+						<div class="col-12">
+							<label class="form-label fw-medium fs-14">
+								CV
+								<span class="text-danger">*</span>
+							</label>
+							<input type="file" class="form-control" />
+						</div>
+						<div class="col-12">
+							<label for="salary" class="form-label fw-medium fs-14">
+								Expected Salary
+							</label>
+							<input
+								type="text"
+								class="form-control"
+								id="salary"
+								placeholder="Type Here.."
+							/>
+						</div>
+						<div class="col-12">
+							<button
+								type="button"
+								class="btn btn-dark align-items-center w-100 justify-content-center"
+							>
+								<span class="d-inline-block"> Submit Application </span>
+								<iconify-icon
+									icon="entypo:paper-plane"
+									class="align-middle fs-20 flex-shrink-0"
+								></iconify-icon>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Career Application End -->
+
+<!-- Footer -->
+{{> "footer-2"}}
+<!-- Footer End -->
