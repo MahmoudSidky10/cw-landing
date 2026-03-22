@@ -5,11 +5,13 @@
 
 <body>
     <style>
-        .primary-header {
-            background-color: #000 !important;
+
+        .about-2__separator-icon {
+            width: 5rem;
+            height: 5rem;
         }
     </style>
-    @include('web.layout.nav')
+    @include('web.layout.nav', ['navClass' => 'primary-header--dark primary-header--fixed primary-header--boxed top-md-3 primary-header-crossed:top-0 primary-header-crossed:full-dark'])
     <div class="preloader">
         <div class="preloader__content">
             <img src="{{ asset('assets/img/logo-light.png') }}" alt="logo" class="img-fluid preloader__img">
@@ -38,9 +40,10 @@
                                                 </li>
                                             </ol>
                                         </nav>
-                                        <h3>About Us</h3>
-                                        <p class="mb-0 max-text-12">Shaping Ideas Into Digital Experiences That Inspire
-                                            and Empower Businesses Worldwide.</p>
+                                        <h3>About Cyberwatch360</h3>
+                                        <p class="mb-0 max-text-12">Cyberwatch360 (CW360) is an AI-agentic security
+                                            operations platform that unifies alerts, ticketing, and SOC tasks so teams
+                                            can respond faster, cut noise, and focus on real threats.</p>
                                     </div>
                                 </div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1124" height="401"
@@ -81,10 +84,13 @@
                                             class="align-middle fs-20 flex-shrink-0"></iconify-icon>
                                         <span class="d-inline-block flex-grow-1 fw-medium"> About Us </span>
                                     </span>
-                                    <h3 class="max-text-4 mx-auto"> Our Mission is to Make Work Meaningful </h3>
-                                    <p class="mb-0 fw-semibold"> Lattice is the #1 AI-powered people platform that turns
-                                        managers into leaders, employees into high-performers, and companies into the
-                                        best places to work. </p>
+                                    <h3 class="max-text-4 mx-auto">Our mission</h3>
+                                    <p class="mb-0 fw-semibold">We enhance cybersecurity operations through a smart,
+                                        unified platform that brings together alerts, ticketing, and Security Operations
+                                        Center (SOC) work in one place. Using advanced AI and machine learning, we help
+                                        organizations automate repetitive work, reduce response times, and shrink the
+                                        effort required to manage incidents—so analysts spend less time on triage and
+                                        more time stopping real attacks.</p>
                                 </div>
                             </div>
                         </div>
@@ -94,16 +100,20 @@
                     <div class="row g-4 justify-content-center">
                         <div class="col-md-10 col-lg-8">
                             <div class="text-center">
-                                <img src="{{ asset('assets/img/about-img.png') }}" alt="image" class="img-fluid">
+                                <img src="{{ asset('assets/img/cw/cw-about-hero.jpg') }}"
+                                    alt="Cyberwatch360 team members collaborating in a modern office" class="img-fluid rounded-3">
                             </div>
                         </div>
                     </div>
                 </div>
+                {{-- Audience headline + placeholder partner logos (uncomment when real logos are ready) --}}
+                {{--
                 <div class="section-space-md-top">
                     <div class="container">
                         <div class="row justify-content-center g-4">
                             <div class="col-md-8 col-xl-6">
-                                <h6 class="mb-0 fs-20 text-center"> Trusted by the best companies in the world </h6>
+                                <h6 class="mb-0 fs-20 text-center">Built for CISOs, SOC managers, and analysts in
+                                    regulated enterprises and growing MSSPs</h6>
                             </div>
                             <div class="col-12">
                                 <ul class="list list-row flex-wrap gap-6 justify-content-center align-items-center">
@@ -124,6 +134,7 @@
                         </div>
                     </div>
                 </div>
+                --}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="931" height="815" viewBox="0 0 931 815"
                     fill="none" class="about-1__shape">
                     <g filter="url(#filter0_f_8001_8009)">
@@ -154,16 +165,16 @@
                                         class="align-middle fs-20 flex-shrink-0"></iconify-icon>
                                     <span class="d-inline-block flex-grow-1 fw-medium"> About Us </span>
                                 </span>
-                                <h3 class="mb-0">Our Mission is to Make Work Meaningful</h3>
+                                <h3 class="mb-0">Why Cyberwatch360 is different</h3>
                             </div>
                             <div class="col-md-5">
-                                <img src="{{ asset('assets/img/about-2-img-mobile.png') }}" alt="image"
-                                    class="img-fluid d-xl-none">
+                                <img src="{{ asset('assets/img/cw/cw-about-mobile.jpg') }}" alt="Cyberwatch360 security operations"
+                                    class="img-fluid d-xl-none rounded-3">
                                 <div class="d-none d-xl-inline-block position-relative z-1">
-                                    <img src="{{ asset('assets/img/about-2-img-a.png') }}" alt="image"
-                                        class="img-fluid">
-                                    <img src="{{ asset('assets/img/about-2-img-b.png') }}" alt="image"
-                                        class="img-fluid about-2__img">
+                                    <img src="{{ asset('assets/img/about-2-img-a.png') }}"
+                                        alt="Certified capability highlights" class="img-fluid">
+                                    <img src="{{ asset('assets/img/about-2-img-b.png') }}"
+                                        alt="Security professional reviewing data on a tablet" class="img-fluid about-2__img">
                                 </div>
                             </div>
                         </div>
@@ -175,13 +186,17 @@
                             <div
                                 class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ asset('assets/img/about-2-icon-1.png') }}" alt="image"
-                                        class="img-fluid dark:filter-invert">
+                                    <div class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
+                                        aria-hidden="true">
+                                        <iconify-icon icon="solar:shield-warning-bold-duotone"
+                                            class="fs-40"></iconify-icon>
+                                    </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6>Business Plans Auth for all</h6>
-                                    <p class="mb-0"> Progressively onboard every potential user with just one
-                                        library. </p>
+                                    <h6>Unified alert operations</h6>
+                                    <p class="mb-0">Aggregate SIEM, EDR/XDR, firewalls, cloud sources (e.g. AWS
+                                        GuardDuty, Azure Sentinel), and IDS/IPS into one console—with parsing,
+                                        normalization, deduplication, and AI-assisted correlation to reduce noise.</p>
                                 </div>
                             </div>
                         </div>
@@ -189,13 +204,18 @@
                             <div
                                 class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ asset('assets/img/about-2-icon-2.png') }}" alt="image"
-                                        class="img-fluid dark:filter-invert">
+                                    <div class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
+                                        aria-hidden="true">
+                                        <iconify-icon icon="solar:clipboard-list-bold-duotone"
+                                            class="fs-40"></iconify-icon>
+                                    </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6>Business Plans Auth for all</h6>
-                                    <p class="mb-0"> Progressively onboard every potential user with just one
-                                        library. </p>
+                                    <h6>Ticket &amp; task lifecycle</h6>
+                                    <p class="mb-0">Enriched tickets for platforms like ServiceNow and Jira—IOCs, risk
+                                        scores, MITRE TTP context, assignments by skill and workload—plus structured
+                                        tasks, Kanban views, SLAs, and notifications across email, Slack, and Microsoft
+                                        Teams.</p>
                                 </div>
                             </div>
                         </div>
@@ -203,13 +223,16 @@
                             <div
                                 class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ asset('assets/img/about-2-icon-3.png') }}" alt="image"
-                                        class="img-fluid dark:filter-invert">
+                                    <div class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
+                                        aria-hidden="true">
+                                        <iconify-icon icon="solar:settings-bold-duotone" class="fs-40"></iconify-icon>
+                                    </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6>Business Plans Auth for all</h6>
-                                    <p class="mb-0"> Progressively onboard every potential user with just one
-                                        library. </p>
+                                    <h6>Service management backbone</h6>
+                                    <p class="mb-0">Centralized configuration for categories, priorities, statuses,
+                                        processes, policies, services, and roles—so the same operational model flows from
+                                        alert triage through task execution and audit-ready logging.</p>
                                 </div>
                             </div>
                         </div>
@@ -217,13 +240,17 @@
                             <div
                                 class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ asset('assets/img/about-2-icon-4.png') }}" alt="image"
-                                        class="img-fluid dark:filter-invert">
+                                    <div class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
+                                        aria-hidden="true">
+                                        <iconify-icon icon="mingcute:ai-fill" class="fs-40"></iconify-icon>
+                                    </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6>Battle-tested & hardened</h6>
-                                    <p class="mb-0"> Progressively onboard every potential user with just one
-                                        library. </p>
+                                    <h6>Zarqaa AI: agentic, not just playbooks</h6>
+                                    <p class="mb-0">Unlike fixed SOAR scripts (if A then B), agentic AI reasons across
+                                        signals—e.g. correlating a login with Jira and Slack—to decide next steps. The
+                                        Zarqaa assistant acts as a virtual L1 analyst: recommendations, routine analysis,
+                                        and 24/7 coverage without burning out your team.</p>
                                 </div>
                             </div>
                         </div>
@@ -243,9 +270,12 @@
                                         class="align-middle fs-20 flex-shrink-0"></iconify-icon>
                                     <span class="d-inline-block flex-grow-1 fw-medium"> Timeline </span>
                                 </span>
-                                <h3>Our History</h3>
-                                <p class="mb-0"> Lattice is the #1 AI-powered people platform that turns managers
-                                    into leaders, employees into high-performers </p>
+                                <h3>Our story</h3>
+                                <p class="mb-0">Cyberwatch360 exists because modern SOCs drown in disconnected tools
+                                    and alert noise. We combine a unified operations layer with AI that prioritizes real
+                                    incidents, explains its actions, and scales from lean MSSPs to large regulated
+                                    enterprises—especially where digital transformation and compliance (e.g. SAMA,
+                                    national cyber frameworks) raise the bar.</p>
                             </div>
                         </div>
                     </div>
@@ -256,49 +286,54 @@
                             <div class="timeline-1">
                                 <div class="timeline-1__item">
                                     <div class="timeline-1__left">
-                                        <h6 class="fw-semibold fs-20 mb-md-0">2012</h6>
+                                        <h6 class="fw-semibold fs-20 mb-md-0">Unify</h6>
                                     </div>
                                     <div class="timeline-1__right">
-                                        <h6>Started Company</h6>
-                                        <p class="mb-0"> Delcap Asset Management Ltd is incorporated in London and
-                                            regulated by the Financial Conduct Authority (FCA). </p>
+                                        <h6>One console for the SOC</h6>
+                                        <p class="mb-0">Bring alerts, tickets, and tasks together instead of juggling
+                                            siloed SIEM, EDR, and ITSM screens—so critical incidents are less likely to
+                                            be missed or mishandled.</p>
                                     </div>
                                 </div>
                                 <div class="timeline-1__item">
                                     <div class="timeline-1__left">
-                                        <h6 class="fw-semibold fs-20 mb-md-0">2013</h6>
+                                        <h6 class="fw-semibold fs-20 mb-md-0">Automate</h6>
                                     </div>
                                     <div class="timeline-1__right">
-                                        <h6>AUM: EUR 50M</h6>
-                                        <p class="mb-0"> Delcap Asset Management Ltd is incorporated in London and
-                                            regulated by the Financial Conduct Authority. </p>
+                                        <h6>From alert to structured response</h6>
+                                        <p class="mb-0">Ingest via REST, webhooks, syslog, or email; normalize fields;
+                                            deduplicate and correlate; auto-generate enriched tickets with IOCs, risk
+                                            scores, and MITRE mappings.</p>
                                     </div>
                                 </div>
                                 <div class="timeline-1__item">
                                     <div class="timeline-1__left">
-                                        <h6 class="fw-semibold fs-20 mb-md-0">2018</h6>
+                                        <h6 class="fw-semibold fs-20 mb-md-0">Zarqaa</h6>
                                     </div>
                                     <div class="timeline-1__right">
-                                        <h6>AUM: EUR 50M</h6>
-                                        <p class="mb-0"> Delcap secures its first institutional monitoring mandate
-                                            and launches its first Private Equity feeder fund </p>
+                                        <h6>Agentic AI with proof</h6>
+                                        <p class="mb-0">Zarqaa reasons across tools and context like a fast, efficient
+                                            analyst—not a rigid playbook. Every action can be traced in a reasoning log
+                                            so you trust why an alert was closed as false positive or escalated.</p>
                                     </div>
                                 </div>
                                 <div class="timeline-1__item">
                                     <div class="timeline-1__left">
-                                        <h6 class="fw-semibold fs-20 mb-md-0">2021</h6>
+                                        <h6 class="fw-semibold fs-20 mb-md-0">Scale</h6>
                                     </div>
                                     <div class="timeline-1__right">
-                                        <h6>AUM: EUR 50M</h6>
-                                        <p class="mb-0"> Delcap secures its first institutional monitoring mandate
-                                            and launches its first Private Equity feeder fund </p>
+                                        <h6>MENA &amp; beyond</h6>
+                                        <p class="mb-0">Purpose-built for organizations facing alert overload, fragmented
+                                            workflows, and talent gaps—from MSSPs needing multi-tenant efficiency to
+                                            SMEs that need a security copilot without a 24/7 SOC.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <img src="{{ asset('assets/img/timeline-img.png') }}" alt="image"
-                                class="img-fluid dark:filter-invert">
+                            <img src="{{ asset('assets/img/timeline-img.png') }}"
+                                alt="Cyberwatch360 dashboard showing alerts, MTTA, and status charts"
+                                class="img-fluid rounded-3">
                         </div>
                     </div>
                 </div>
@@ -309,8 +344,8 @@
                                 <div
                                     class="d-flex align-items-center gap-4 gap-xl-6 rounded-4 p-4 py-sm-4 py-xl-6 py-xxl-8 px-sm-8 px-lg-4 px-xl-8 px-xxl-10 bg-light-subtle shadow-sm">
                                     <div class="flex-grow-1">
-                                        <h4 class="mb-2">5,000+</h4>
-                                        <p class="mb-0">Organizations trust Lattice</p>
+                                        <h4 class="mb-2">100%</h4>
+                                        <p class="mb-0">Alert coverage goal—no alert left uninvestigated</p>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <iconify-icon icon="fluent-emoji:handshake" class="h3 mb-0"></iconify-icon>
@@ -321,8 +356,8 @@
                                 <div
                                     class="d-flex align-items-center gap-4 gap-xl-6 rounded-4 p-4 py-sm-4 py-xl-6 py-xxl-8 px-sm-8 px-lg-4 px-xl-8 px-xxl-10 bg-light-subtle shadow-sm">
                                     <div class="flex-grow-1">
-                                        <h4 class="mb-2">10k+</h4>
-                                        <p class="mb-0">Monthly campaign</p>
+                                        <h4 class="mb-2">24/7</h4>
+                                        <p class="mb-0">AI assistant vigilance as a virtual L1 analyst</p>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <iconify-icon icon="fluent-emoji:trophy" class="h3 mb-0"></iconify-icon>
@@ -333,8 +368,9 @@
                                 <div
                                     class="d-flex align-items-center gap-4 gap-xl-6 rounded-4 p-4 py-sm-4 py-xl-6 py-xxl-8 px-sm-8 px-lg-4 px-xl-8 px-xxl-10 bg-light-subtle shadow-sm">
                                     <div class="flex-grow-1">
-                                        <h4 class="mb-2">20M+</h4>
-                                        <p class="mb-0">Monthly Page Visitor</p>
+                                        <h4 class="mb-2">~70%</h4>
+                                        <p class="mb-0">Industry studies cite triage consuming most analyst time—we target
+                                            that waste</p>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <iconify-icon icon="emojione-v1:smiling-face-with-halo"
@@ -354,20 +390,22 @@
                                         class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
                                         <iconify-icon icon="uim:check-circle"
                                             class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                        <span class="d-inline-block flex-grow-1 fw-medium"> Our Team </span>
+                                        <span class="d-inline-block flex-grow-1 fw-medium"> Audience </span>
                                     </span>
-                                    <h3 class="mb-0 mx-auto">Our Team Members</h3>
+                                    <h3 class="mb-0 mx-auto">Who we build for</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{-- Audience photos --}}
                 <div class="container">
                     <div class="row g-4">
                         <div class="col-sm-6 col-lg-3">
                             <div class="team-member-1">
                                 <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('assets/img/team-member-1.png') }}" alt="image"
+                                    <img src="{{ asset('assets/img/audience/audience-ciso.jpg') }}"
+                                        alt="Executive leader representing a CISO economic buyer"
                                         class="w-100 h-100 object-fit-cover transition team-member-1__img">
                                 </div>
                                 <div
@@ -375,13 +413,12 @@
                                     <div
                                         class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
                                         <div class="flex-grow-1">
-                                            <a href="#"
-                                                class="link d-block fw-bold text-heading hover:text-primary"> Savan
-                                                Nuyen </a>
-                                            <p class="mb-0 fs-12">Project Manager</p>
+                                            <span class="d-block fw-bold text-heading">Economic buyer: CISO</span>
+                                            <p class="mb-0 fs-12">Governance, compliance, cost control, and measurable
+                                                SOC performance.</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <a href="#"
+                                            <a href="{{ route('contact') }}"
                                                 class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
                                                 <iconify-icon icon="guidance:left-arrow"></iconify-icon>
                                             </a>
@@ -393,7 +430,8 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="team-member-1">
                                 <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('assets/img/team-member-2.png') }}" alt="image"
+                                    <img src="{{ asset('assets/img/audience/audience-soc-lead.jpg') }}"
+                                        alt="Professional in business attire representing a SOC manager or team lead"
                                         class="w-100 h-100 object-fit-cover transition team-member-1__img">
                                 </div>
                                 <div
@@ -401,13 +439,12 @@
                                     <div
                                         class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
                                         <div class="flex-grow-1">
-                                            <a href="#"
-                                                class="link d-block fw-bold text-heading hover:text-primary"> Peter
-                                                Parker </a>
-                                            <p class="mb-0 fs-12">Project Manager</p>
+                                            <span class="d-block fw-bold text-heading">Daily user: SOC lead</span>
+                                            <p class="mb-0 fs-12">High alert volume, SLA pressure, and need for
+                                                prioritization without burning out analysts.</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <a href="#"
+                                            <a href="{{ route('contact') }}"
                                                 class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
                                                 <iconify-icon icon="guidance:left-arrow"></iconify-icon>
                                             </a>
@@ -419,7 +456,8 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="team-member-1">
                                 <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('assets/img/team-member-3.png') }}" alt="image"
+                                    <img src="{{ asset('assets/img/audience/audience-mssp.jpg') }}"
+                                        alt="Collaborating technology team representing MSSP delivery"
                                         class="w-100 h-100 object-fit-cover transition team-member-1__img">
                                 </div>
                                 <div
@@ -427,13 +465,12 @@
                                     <div
                                         class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
                                         <div class="flex-grow-1">
-                                            <a href="#"
-                                                class="link d-block fw-bold text-heading hover:text-primary"> Marty
-                                                Byrde </a>
-                                            <p class="mb-0 fs-12">Project Manager</p>
+                                            <span class="d-block fw-bold text-heading">MSSP &amp; multi-tenant</span>
+                                            <p class="mb-0 fs-12">Lean teams serving many clients need segregation,
+                                                centralized visibility, and fast deployment.</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <a href="#"
+                                            <a href="{{ route('contact') }}"
                                                 class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
                                                 <iconify-icon icon="guidance:left-arrow"></iconify-icon>
                                             </a>
@@ -445,7 +482,8 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="team-member-1">
                                 <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('assets/img/team-member-4.png') }}" alt="image"
+                                    <img src="{{ asset('assets/img/audience/audience-sme.jpg') }}"
+                                        alt="Small team discussion representing an SME security or IT group"
                                         class="w-100 h-100 object-fit-cover transition team-member-1__img">
                                 </div>
                                 <div
@@ -453,13 +491,12 @@
                                     <div
                                         class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
                                         <div class="flex-grow-1">
-                                            <a href="#"
-                                                class="link d-block fw-bold text-heading hover:text-primary"> Ben Davis
-                                            </a>
-                                            <p class="mb-0 fs-12">Project Manager</p>
+                                            <span class="d-block fw-bold text-heading">SME security teams</span>
+                                            <p class="mb-0 fs-12">Small groups covering multiple roles need a copilot to
+                                                multiply impact—especially with a SIEM but no full SOC.</p>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <a href="#"
+                                            <a href="{{ route('contact') }}"
                                                 class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
                                                 <iconify-icon icon="guidance:left-arrow"></iconify-icon>
                                             </a>
@@ -484,7 +521,7 @@
                                         class="align-middle fs-20 flex-shrink-0"></iconify-icon>
                                     <span class="d-inline-block flex-grow-1 fw-medium"> Testimonials </span>
                                 </span>
-                                <h3 class="mb-0">What Client Say's About Our Services</h3>
+                                <h3 class="mb-0">What security leaders are solving with CW360</h3>
                             </div>
                         </div>
                     </div>
@@ -495,22 +532,25 @@
                             <div class="col-12">
                                 <div class="swiper testimonial-slider-1">
                                     <div class="swiper-wrapper">
-                                        @foreach ([['img' => 'testimonial-1-img-1.png', 'name' => 'Kyle Teague'], ['img' => 'testimonial-1-img-2.png', 'name' => 'Jhon Snow'], ['img' => 'testimonial-1-img-3.png', 'name' => 'Peter Parker'], ['img' => 'testimonial-1-img-4.png', 'name' => 'Marty Byred'], ['img' => 'testimonial-1-img-5.png', 'name' => 'Kyle Teague'], ['img' => 'testimonial-1-img-6.png', 'name' => 'Jemmy Fox'], ['img' => 'testimonial-1-img-7.png', 'name' => 'Mike Perry']] as $t)
+                                        @foreach ([
+                                            ['img' => 'testimonial-avatars/1.jpg', 'name' => 'CISO perspective', 'role' => 'Regulated enterprise', 'quote' => 'We are measured on risk reduction and cost. CW360 aligns with that: fewer tools to string together, faster response, and AI that augments the team instead of adding another black box.'],
+                                            ['img' => 'testimonial-avatars/2.jpg', 'name' => 'SOC manager perspective', 'role' => 'High-volume operations', 'quote' => 'The nightmare is a real attack hiding in thousands of false positives. Agentic investigation with a reasoning log beats “select all and close” every time.'],
+                                            ['img' => 'testimonial-avatars/3.jpg', 'name' => 'MSSP perspective', 'role' => 'Multi-tenant delivery', 'quote' => 'We need quick onboarding per tenant and centralized control. A unified incident stack beats paying for fragmented SOAR, SIEM consoles, and ITSM glue code.'],
+                                            ['img' => 'testimonial-avatars/4.jpg', 'name' => 'Security engineer perspective', 'role' => 'Integration-focused', 'quote' => 'REST, webhooks, syslog, and email ingestion matter. We can connect modern and legacy sources without a six-month services project.'],
+                                        ] as $t)
                                             <div class="swiper-slide">
                                                 <div class="bg-light-subtle shadow-lg rounded-4 p-6 p-md-8 m-4">
-                                                    <p class="mb-6 text-heading"> I love getting notified that my team
-                                                        member received praise so I can bring it up in our next
-                                                        one-on-one. </p>
+                                                    <p class="mb-6 text-heading">{{ $t['quote'] }}</p>
                                                     <div class="d-flex align-items-center gap-4">
                                                         <div class="flex-shrink-0">
                                                             <img src="{{ asset('assets/img/' . $t['img']) }}"
-                                                                alt="image" class="img-fluid">
+                                                                alt="{{ $t['name'] }}"
+                                                                class="img-fluid rounded-circle testimonial-section-1__avatar">
                                                         </div>
                                                         <div class="flex-grow-1">
                                                             <p class="mb-1 fw-semibold text-heading">
                                                                 {{ $t['name'] }} </p>
-                                                            <span class="d-block fs-14"> Director of Learning and
-                                                                Development </span>
+                                                            <span class="d-block fs-14">{{ $t['role'] }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -522,22 +562,25 @@
                             <div class="col-12">
                                 <div class="swiper testimonial-slider-2">
                                     <div class="swiper-wrapper">
-                                        @foreach ([['img' => 'testimonial-1-img-1.png', 'name' => 'Kyle Teague'], ['img' => 'testimonial-1-img-2.png', 'name' => 'Jhon Snow'], ['img' => 'testimonial-1-img-3.png', 'name' => 'Peter Parker'], ['img' => 'testimonial-1-img-4.png', 'name' => 'Marty Byred'], ['img' => 'testimonial-1-img-5.png', 'name' => 'Kyle Teague'], ['img' => 'testimonial-1-img-6.png', 'name' => 'Jemmy Fox'], ['img' => 'testimonial-1-img-7.png', 'name' => 'Mike Perry'], ['img' => 'testimonial-1-img-1.png', 'name' => 'Steven Miller'], ['img' => 'testimonial-1-img-2.png', 'name' => 'Merry Kom'], ['img' => 'testimonial-1-img-3.png', 'name' => 'Kyle Teague']] as $t)
+                                        @foreach ([
+                                            ['img' => 'testimonial-avatars/5.jpg', 'name' => 'Outcome: MTTR', 'role' => 'Operational KPI', 'quote' => 'Consolidating triage, enrichment, ticketing, and tasks removes hand‑offs that inflate mean time to respond.'],
+                                            ['img' => 'testimonial-avatars/6.jpg', 'name' => 'Outcome: coverage', 'role' => 'SOC quality bar', 'quote' => 'We aim for full alert coverage—investigate everything, prioritize correctly, and document why.'],
+                                            ['img' => 'testimonial-avatars/7.jpg', 'name' => 'Outcome: playbooks', 'role' => 'Automation strategy', 'quote' => 'Traditional SOAR is brittle. Agentic reasoning with transparent logs reduces playbook authoring and constant maintenance.'],
+                                            ['img' => 'testimonial-avatars/8.jpg', 'name' => 'MENA context', 'role' => 'Compliance & national programs', 'quote' => 'Vision 2030-class initiatives and frameworks like SAMA raise the bar. We need platforms that match that urgency.'],
+                                        ] as $t)
                                             <div class="swiper-slide">
                                                 <div class="bg-light-subtle shadow-lg rounded-4 p-6 p-md-8 m-4">
-                                                    <p class="mb-6 text-heading"> I love getting notified that my team
-                                                        member received praise so I can bring it up in our next
-                                                        one-on-one. </p>
+                                                    <p class="mb-6 text-heading">{{ $t['quote'] }}</p>
                                                     <div class="d-flex align-items-center gap-4">
                                                         <div class="flex-shrink-0">
                                                             <img src="{{ asset('assets/img/' . $t['img']) }}"
-                                                                alt="image" class="img-fluid">
+                                                                alt="{{ $t['name'] }}"
+                                                                class="img-fluid rounded-circle testimonial-section-1__avatar">
                                                         </div>
                                                         <div class="flex-grow-1">
                                                             <p class="mb-1 fw-semibold text-heading">
                                                                 {{ $t['name'] }} </p>
-                                                            <span class="d-block fs-14"> Director of Learning and
-                                                                Development </span>
+                                                            <span class="d-block fs-14">{{ $t['role'] }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -568,396 +611,7 @@
                 </div>
             </div>
             <!-- Testimonial Section End -->
-            <div class="section-space-md-y bg-body-tertiary">
-                <!-- Advertisement Section -->
-                <div class="section-space-md-y">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div
-                                    class="ad-1 section-space-sm-y bg-dark rounded px-4 px-md-8 px-lg-12 position-relative z-1 overflow-hidden">
-                                    <div class="row g-4 justify-content-between align-items-center">
-                                        <div class="col-md-8">
-                                            <h4 class="mb-0 text-light"> Your appointments are in safe hands </h4>
-                                        </div>
-                                        <div class="col-md-4 text-md-end">
-                                            <a href="{{ route('home') }}" class="btn btn-primary"> Purchase Now </a>
-                                        </div>
-                                    </div>
-                                    <img src="{{ asset('assets/img/ad-1-img-1.png') }}" alt="image"
-                                        class="img-fluid position-absolute top-50 start-50 translate-middle-y z-n1">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Advertisement Section End -->
-                <!-- Board & Investors Section -->
-                <div class="section-space-md-y">
-                    <div class="section-space-md-bottom text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-md-10 col-lg-8">
-                                    <span
-                                        class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
-                                        <iconify-icon icon="uim:check-circle"
-                                            class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                        <span class="d-inline-block flex-grow-1 fw-medium"> Our Team </span>
-                                    </span>
-                                    <h3 class="max-text-4 mx-auto">Our Board & Investors</h3>
-                                    <p class="mb-0"> Our Board of Directors includes Jack Altman (Co-founder &
-                                        Executive Chairman, Lattice), Eric Koslow (Co-founder, Lattice), Sandra Smith,
-                                        Miles Grimshaw </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <ul
-                                    class="list list-row flex-wrap gap-4 gap-md-6 justify-content-center align-items-center">
-                                    @foreach (range(1, 10) as $i)
-                                        <li>
-                                            <div
-                                                class="brand-2 d-grid place-content-center text-center bg-light-subtle rounded">
-                                                <img src="{{ asset('assets/img/brand-img-' . $i . '.png') }}"
-                                                    alt="image" class="img-fluid">
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section-space-md-y">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-11 col-xl-9 col-xxl-8">
-                                    <h6 class="mb-0 text-center mx-auto text-body"> Incredible individuals have also
-                                        invested in Lattice including, <span class="text-heading">Marc Benioff (CEO of
-                                            Salesforce)</span>, Alexis Ohanian (Co-founder and Executive Chairman of
-                                        Reddit), Elad Gil (Startup Investor and Advisor), <span
-                                            class="text-heading">and Kevin Mahaffey (Founder and CTO of
-                                            Lookout)</span>. </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid p-0">
-                        <div class="row g-0">
-                            <div class="col-12">
-                                <div class="swiper team-member-2-slider">
-                                    <div class="swiper-wrapper">
-                                        @foreach ([1, 2, 3, 4, 1, 3] as $i)
-                                            <div class="swiper-slide">
-                                                <div class="rounded overflow-hidden">
-                                                    <img src="{{ asset('assets/img/team-member-2-img-' . $i . '.png') }}"
-                                                        alt="image" class="w-100 h-100 object-fit-cover">
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Board & Investors Section End -->
-                <!-- CTA -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div
-                                class="section-space-y px-4 px-sm-8 px-md-10 px-lg-12 rounded-4 position-relative z-1 bg-light-subtle overflow-hidden">
-                                <div class="row">
-                                    <div class="col-md-8 col-xl-6">
-                                        <span
-                                            class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
-                                            <iconify-icon icon="uim:check-circle"
-                                                class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                            <span class="d-inline-block flex-grow-1 fw-medium"> CTA </span>
-                                        </span>
-                                        <h3 class="mb-0">What Client Say's About Our Services</h3>
-                                    </div>
-                                </div>
-                                <img src="{{ asset('assets/img/cta-1-img.png') }}" alt="image"
-                                    class="img-fluid position-absolute top-50 end-0 translate-middle-y bottom-0 z-n1 d-none d-md-block">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- CTA End -->
-            </div>
-            <!-- Footer -->
-            <footer class="position-relative z-1 overflow-hidden">
-                <div class="section-space-lg-y">
-                    <div class="container">
-                        <div class="row g-4">
-                            <div class="col-md-7 col-lg-4">
-                                <div class="pe-xxl-10">
-                                    <a class="logo d-inline-flex mb-6" href="{{ route('home') }}">
-                                        <img src="{{ asset('assets/img/logo-dark.png') }}" alt="image"
-                                            class="logo__img logo__img--light">
-                                        <img src="{{ asset('assets/img/logo-light.png') }}" alt="image"
-                                            class="logo__img logo__img--dark">
-                                    </a>
-                                    <p class="mb-8"> Giving modern marketing teams superpowers with short links that
-                                        stand </p>
-                                    <div class="d-flex align-items-center flex-wrap gap-3 mb-6">
-                                        <div class="d-flex align-items-center gap-2 py-3 px-2 rounded bg-body shadow">
-                                            <img src="{{ asset('assets/img/certificate-img-1.png') }}" alt="image"
-                                                class="img-fluid flex-shrink-0">
-                                            <div class="flex-grow-1">
-                                                <ul class="list list-row gap-1 align-items-center lh-1">
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                </ul>
-                                                <p class="mb-0 fs-14 fw-medium">Capterra admit</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 py-3 px-2 rounded bg-body shadow">
-                                            <img src="{{ asset('assets/img/certificate-img-2.png') }}" alt="image"
-                                                class="img-fluid flex-shrink-0">
-                                            <div class="flex-grow-1">
-                                                <ul class="list list-row gap-1 align-items-center lh-1">
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                    <li><iconify-icon icon="mingcute:star-fill"
-                                                            class="fs-14 text-warning"></iconify-icon></li>
-                                                </ul>
-                                                <p class="mb-0 fs-14 fw-medium">Honored by G2</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="d-flex justify-content-between align-items-center gap-4 py-2 px-4 bg-body rounded shadow">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <img src="{{ asset('assets/img/avatar-6.png') }}" alt="image"
-                                                class="img-fluid flex-shrink-0">
-                                            <div class="flex-grow-1">
-                                                <span class="d-block fw-medium fs-14"> Get <span
-                                                        class="text-primary">35% off</span> for the whole ✨ year
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="link d-inline-block text-primary flex-shrink-0">
-                                            <iconify-icon icon="line-md:arrow-right" class="fs-20"></iconify-icon>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="row g-4 justify-content-xxl-around">
-                                    <div class="col-sm-6 col-md-3 col-xxl-3">
-                                        <h6 class="mb-6"> Product </h6>
-                                        <ul class="list gap-2">
-                                            <li><a href="{{ route('home') }}"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    AI Technology </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    AI Chat Support </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    AI Code Generator </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    AI Image Generator </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    AI Developer Ast. </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    AI Video Generator </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3 col-xxl-3">
-                                        <h6 class="mb-6">Company</h6>
-                                        <ul class="list gap-2">
-                                            <li><a href="{{ route('about') }}"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    About Us </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Career Opportunity </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Case Study </a></li>
-                                            <li><a href="{{ route('contact') }}"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Contact Us </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Portfolio </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Pricing </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Service </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3 col-xxl-2">
-                                        <h6 class="mb-6">Pages</h6>
-                                        <ul class="list gap-2">
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Blog </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Modern Blog </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    FAQ </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Sign In </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Sign Up </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Event </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Privacy Policy </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6 col-md-3 col-xxl-3">
-                                        <h6 class="mb-6">Elements</h6>
-                                        <ul class="list gap-2">
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    About </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Blog </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Call to Action </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Testimonial </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Info List </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Feature </a></li>
-                                            <li><a href="#"
-                                                    class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">
-                                                    Hero </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-space-sm-bottom">
-                    <div class="container">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-6">
-                                <ul
-                                    class="list list-row list-dot list-dot--md list-dot--secondary-emphasis flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                                    <li><span class="d-inline-block fs-14"> &copy; 2025 NextAi </span></li>
-                                    <li><a href="#"
-                                            class="link d-inline-block text-body hover:text-primary fs-14"> Terms of
-                                            Use </a></li>
-                                    <li><a href="#"
-                                            class="link d-inline-block text-body hover:text-primary fs-14"> Security
-                                        </a></li>
-                                    <li><a href="#"
-                                            class="link d-inline-block text-body hover:text-primary fs-14"> Privacy
-                                            Policy </a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul
-                                    class="list list-row flex-wrap justify-content-center justify-content-lg-end align-items-center gap-3">
-                                    <li><a href="#"
-                                            class="badge px-4 bg-primary-emphasis text-primary-subtle rounded-pill">
-                                            Build with Us AI </a></li>
-                                    <li>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18">
-                                            <iconify-icon icon="si:twitter-duotone"></iconify-icon>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18">
-                                            <iconify-icon icon="ri:facebook-fill"></iconify-icon>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18">
-                                            <iconify-icon icon="ri:linkedin-fill"></iconify-icon>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button"
-                                            class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18">
-                                            <iconify-icon icon="icon-park-outline:dribble"></iconify-icon>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <img src="{{ asset('assets/img/shapes/footer-2-grid.png') }}" alt="image"
-                    class="img-fluid position-absolute start-50 bottom-0 translate-middle-x z-n1 pointer-none">
-                <svg width="860" height="579" viewBox="0 0 860 579" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" class="position-absolute z-n1 start-0 top-0 pointer-none">
-                    <g filter="url(#filter0_f_10034_5037)">
-                        <path
-                            d="M169.847 11.8444C151.014 -24.0114 128.472 -103.643 82.4746 -110.489C43.9821 -116.218 33.7393 -2.76055 87.0576 100.521C215.664 305.212 328.779 330.576 432.07 345.949C535.361 361.322 587.664 315.572 592.476 283.235C597.289 250.899 573.027 200.25 405.023 175.245C237.02 150.241 188.679 47.7002 169.847 11.8444Z"
-                            fill="#00C4FD" fill-opacity="0.2" />
-                    </g>
-                    <defs>
-                        <filter id="filter0_f_10034_5037" x="-216.362" y="-377.364" width="1076.05" height="993.048"
-                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                            <feGaussianBlur stdDeviation="133.333" result="effect1_foregroundBlur_10034_5037" />
-                        </filter>
-                    </defs>
-                </svg>
-                <svg width="691" height="579" viewBox="0 0 691 579" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" class="position-absolute z-n1 end-0 top-0 pointer-none">
-                    <g filter="url(#filter0_f_10034_5038)">
-                        <path
-                            d="M724.978 62.1383C748.883 29.4456 782.903 -46 829.407 -46C868.323 -46 861.752 67.7293 793.81 162.036C636.472 345.564 520.855 354 416.426 354C311.998 354 267 301.048 267 268.356C267 235.663 298.454 189.138 468.309 189.138C638.162 189.138 701.072 94.8311 724.978 62.1383Z"
-                            fill="#6328FF" fill-opacity="0.2" />
-                    </g>
-                    <defs>
-                        <filter id="filter0_f_10034_5038" x="0.333405" y="-312.667" width="1119.59" height="933.333"
-                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                            <feGaussianBlur stdDeviation="133.333" result="effect1_foregroundBlur_10034_5038" />
-                        </filter>
-                    </defs>
-                </svg>
-            </footer>
-            <!-- Footer End -->
+            @include('web.layout.footer-marketing')
         </div>
     </div>
     <!-- Scripts -->

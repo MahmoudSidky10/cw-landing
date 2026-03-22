@@ -29,4 +29,14 @@ class HomeController extends Controller
         return view('web.blog');
     }
 
+    public function faq()
+    {
+        return view('web.faq');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('web.privacy-policy');
+    }
+
 }

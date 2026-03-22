@@ -8,11 +8,11 @@
                                     <div class="d-inline-flex align-items-center gap-2 py-1 px-4 border border-2x border-primary border-opacity-90 rounded-1 bg-primary bg-opacity-10 text-primary-subtle fs-12 mb-6 gsap-fade-in"
                                         data-delay="0.5" data-y="50">
                                         <iconify-icon icon="mingcute:ai-fill" class="flex-shrink-0"></iconify-icon>
-                                        <span class="d-inline-block fw-semibold"> Next AI Code Generator </span>
+                                        <span class="d-inline-block fw-semibold"> AI-agentic security operations </span>
                                     </div>
                                     <h1 class="mb-30 text-light gsap-text-animation" data-delay="0.75"
-                                        data-split-type="lines"> The world's most widely adopted <span
-                                            class="text-clip--primary">Cyperwatch360</span>
+                                        data-split-type="lines"> Unify alerts, tickets, and SOC work in <span
+                                            class="text-clip--primary">Cyberwatch360</span>
                                     </h1>
                                 </div>
                             </div>
@@ -24,7 +24,7 @@
                                 <div class="col-12">
                                     <div class="hero-5__hero-img gsap-fade-in" data-delay="1.25" data-y="15">
                                         <div class="text-center position-relative z-1">
-                                            <img src="{{ asset('assets/img/hero-0-0.jpg') }}" alt="image"
+                                            <img src="{{ asset('assets/img/hero-0-0.jpg') }}" alt="Cyberwatch360 security operations platform"
                                                 class="img-fluid">
                                             <div class="hero-5__circle">
                                                 <span class="hero-5__circle-blurr"></span>
@@ -41,53 +41,78 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row justify-content-center g-4">
-                        <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                            <div class="d-flex align-items-center flex-wrap flex-sm-nowrap row-gap-3 column-gap-4 bg-dark rounded-2 p-4 justify-content-between gsap-fade-in"
+                <div class="container section-space-sm-bottom">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-11 col-xxl-10">
+                            <div class="gradient-border gradient-border--surface-dark rounded-4 hero-5-cta-card position-relative overflow-hidden gsap-fade-in"
                                 data-scroll-trigger="true" data-y="50">
-                                <div class="d-flex align-items-center flex-wrap flex-sm-nowrap row-gap-2 column-gap-4">
-                                    <div class="flex-shrink-0">
-                                        <img src="{{ asset('assets/img/logo-short.png') }}" alt="image"
-                                            class="img-fluid">
+                                <div class="hero-5-cta-card__inner">
+                                    <div class="row g-4 g-lg-5 align-items-center">
+                                        <div class="col-md-auto text-center text-md-start">
+                                            <div class="hero-5-cta-card__logo mx-auto mx-md-0">
+                                                <img src="{{ asset('assets/img/logo/PNG 1 HQ.png') }}"
+                                                    alt="Cyberwatch360" class="hero-5-cta-card__logo-img img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="col-md">
+                                            <p class="hero-5-cta-card__text mb-0 text-center text-md-start">
+                                                Unify alerts, ticketing, and SOC tasks with AI that prioritizes real
+                                                incidents—so analysts spend less time on noise and more time on threats.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-auto text-center text-md-end">
+                                            <a href="{{ route('contact') }}"
+                                                class="btn btn-primary text-dark fw-semibold d-inline-flex align-items-center gap-2 px-4 py-2 hero-5-cta-card__btn">
+                                                <span>Talk to us</span>
+                                                <iconify-icon icon="solar:arrow-right-line-duotone"
+                                                    class="fs-18 flex-shrink-0"></iconify-icon>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <p class="mb-0 fs-12 text-light max-text-10"> Cost-effective solution to generate
-                                        text in seconds and increase your conversions overnight. </p>
                                 </div>
-                                <a href="sign-in-1.html" class="btn btn-sm btn-primary align-items-center text-dark">
-                                    <span class="d-inline-block fw-semibold flex-grow-1"> Get started </span>
-                                    <iconify-icon icon="solar:arrow-right-line-duotone"
-                                        class="align-middle fs-16 flex-shrink-0"></iconify-icon>
-                                </a>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <ul class="list list-row flex-wrap gap-2 justify-content-center align-items-center">
-                                <li class="gsap-fade-in" data-scroll-trigger="true" data-y="50" data-delay="0.1">
-                                    <img src="{{ asset('assets/img/brand-img-11.png') }}" alt="image"
-                                        class="img-fluid">
-                                </li>
-                                <li class="gsap-fade-in" data-scroll-trigger="true" data-y="50" data-delay="0.2">
-                                    <img src="{{ asset('assets/img/brand-img-12.png') }}" alt="image"
-                                        class="img-fluid">
-                                </li>
-                                <li class="gsap-fade-in" data-scroll-trigger="true" data-y="50" data-delay="0.3">
-                                    <img src="{{ asset('assets/img/brand-img-13.png') }}" alt="image"
-                                        class="img-fluid">
-                                </li>
-                                <li class="gsap-fade-in" data-scroll-trigger="true" data-y="50" data-delay="0.4">
-                                    <img src="{{ asset('assets/img/brand-img-14.png') }}" alt="image"
-                                        class="img-fluid">
-                                </li>
-                                <li class="gsap-fade-in" data-scroll-trigger="true" data-y="50" data-delay="0.5">
-                                    <img src="{{ asset('assets/img/brand-img-15.png') }}" alt="image"
-                                        class="img-fluid">
-                                </li>
-                                <li class="gsap-fade-in" data-scroll-trigger="true" data-y="50" data-delay="0.6">
-                                    <img src="{{ asset('assets/img/brand-img-17.png') }}" alt="image"
-                                        class="img-fluid">
-                                </li>
-                            </ul>
+                            <div class="hero-5-trust mt-4 mt-lg-5 text-center gsap-fade-in" data-scroll-trigger="true"
+                                data-y="40" data-delay="0.05">
+                                <p class="hero-5-trust__label mb-3 mb-md-4">What teams ship with CW360</p>
+                                <ul
+                                    class="list-unstyled d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 mb-0">
+                                    <li class="gsap-fade-in" data-scroll-trigger="true" data-y="30" data-delay="0.1">
+                                        <span class="hero-5-trust__chip">
+                                            <iconify-icon icon="solar:shield-check-bold-duotone"
+                                                class="hero-5-trust__chip-icon"></iconify-icon>
+                                            Unified SOC console
+                                        </span>
+                                    </li>
+                                    <li class="gsap-fade-in" data-scroll-trigger="true" data-y="30" data-delay="0.15">
+                                        <span class="hero-5-trust__chip">
+                                            <iconify-icon icon="solar:graph-new-up-bold-duotone"
+                                                class="hero-5-trust__chip-icon"></iconify-icon>
+                                            AI-assisted triage
+                                        </span>
+                                    </li>
+                                    <li class="gsap-fade-in" data-scroll-trigger="true" data-y="30" data-delay="0.2">
+                                        <span class="hero-5-trust__chip">
+                                            <iconify-icon icon="solar:clipboard-list-bold-duotone"
+                                                class="hero-5-trust__chip-icon"></iconify-icon>
+                                            Tickets &amp; tasks
+                                        </span>
+                                    </li>
+                                    <li class="gsap-fade-in" data-scroll-trigger="true" data-y="30" data-delay="0.25">
+                                        <span class="hero-5-trust__chip">
+                                            <iconify-icon icon="solar:cloud-storage-bold-duotone"
+                                                class="hero-5-trust__chip-icon"></iconify-icon>
+                                            Intelligence
+                                        </span>
+                                    </li>
+                                    <li class="gsap-fade-in" data-scroll-trigger="true" data-y="30" data-delay="0.3">
+                                        <span class="hero-5-trust__chip">
+                                            <iconify-icon icon="solar:document-text-bold-duotone"
+                                                class="hero-5-trust__chip-icon"></iconify-icon>
+                                            Specialized AI assistants
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

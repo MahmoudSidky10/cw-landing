@@ -1,5 +1,5 @@
     <nav
-        class="navbar navbar-expand-lg primary-header primary-header--transparent-light-alt primary-header--fixed top-lg-12 primary-header-crossed:top-0">
+        class="navbar navbar-expand-lg primary-header {{ $navClass ?? 'primary-header--transparent-light-alt primary-header--fixed top-lg-12 primary-header-crossed:top-0' }}">
         <div class="container align-items-lg-center">
             <a class="logo" href="{{ route('home') }}">
                 <img src="{{ asset('assets/img/logo/PNG 1 HQ.png') }}" alt="logo" class="logo__img logo__img--light">
@@ -17,11 +17,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('service') }}">Services</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('faq') }}">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('privacy-policy') }}">Privacy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">Contact</a>

@@ -35,7 +35,7 @@
         2.17 Feature Card 1
         2.18 Border Style
         2.19 Folder Card Style
-        2.20 Form Check 
+        2.20 Form Check
         2.21 Form Control
         2.22 Form Select
         2.23 Gradient Border
@@ -70,7 +70,7 @@
         2.52 Tab Underline
         2.53 Tab
         2.54 Table
-        2.55 Team Member 1 
+        2.55 Team Member 1
         2.56 Team Member 2
         2.57 Testimonial 1
         2.58 Testimonial 2
@@ -2984,6 +2984,31 @@ small,
 }
 [data-bs-theme=dark] .logo__img--light {
     display: none;
+}
+/* logo-light.png: icon-style mark — +100% vs previous compact size (1.5→3rem, etc.) */
+.logo:has(.logo__img[src*="logo-light"]) {
+    height: auto;
+    min-height: 3rem;
+    display: inline-flex;
+    align-items: center;
+}
+.logo__img[src*="logo-light"] {
+    max-height: 3rem;
+    max-width: 3.5rem;
+    width: auto;
+    height: auto;
+}
+.preloader__img[src*="logo-light"] {
+    max-height: 5.5rem;
+    max-width: 5.5rem;
+    width: auto;
+}
+/* logo-dark.png: wordmark — 35% smaller (display ×0.65 vs ~3rem slot when paired with logo-light in .logo) */
+.logo__img[src*="logo-dark"] {
+    max-height: calc(3rem * 0.65);
+    max-width: 100%;
+    width: auto;
+    height: auto;
 }
 /* Modal */
 @media (min-width: 576px) {
@@ -7331,6 +7356,93 @@ small,
 [data-bs-theme=dark] .hero-5__circle {
     background: radial-gradient(66.19% 89.14% at 50% 0%, var(--bs-primary) 0%, var(--bs-primary-bg-subtle) 47.4%, var(--bs-dark) 100%);
 }
+
+/* Hero 5 — CTA strip & capability chips */
+.hero-5-cta-card__inner {
+    position: relative;
+    z-index: 1;
+    padding: clamp(1.25rem, 2vw + 0.5rem, 2rem) clamp(1.25rem, 3vw, 2.5rem);
+    border-radius: inherit;
+    background: linear-gradient(155deg, rgba(18, 22, 28, 0.94) 0%, rgba(6, 8, 12, 0.98) 55%, rgba(5, 8, 12, 1) 100%);
+}
+.hero-5-cta-card__logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(4rem, 3vw + 3rem, 5rem);
+    height: clamp(4rem, 3vw + 3rem, 5rem);
+    padding: 0.65rem;
+    border-radius: 1rem;
+    background: rgba(var(--bs-primary-rgb), 0.1);
+    border: 1px solid rgba(var(--bs-primary-rgb), 0.32);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+}
+.hero-5-cta-card__logo-img {
+    max-height: 2.35rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+.hero-5-cta-card__text {
+    font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1.0625rem);
+    line-height: 1.65;
+    color: rgba(var(--bs-light-rgb), 0.88) !important;
+    max-width: 40rem;
+}
+@media (min-width: 768px) {
+    .hero-5-cta-card__text {
+        margin-inline: 0;
+    }
+}
+.hero-5-cta-card__btn {
+    min-width: 10.5rem;
+}
+@media (max-width: 767.98px) {
+    .hero-5-cta-card__btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+.hero-5-trust__label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(var(--bs-light-rgb), 0.42) !important;
+    margin-bottom: 0;
+}
+.hero-5-trust__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: rgba(var(--bs-light-rgb), 0.88);
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(var(--bs-primary-rgb), 0.22);
+    border-radius: 6.25rem;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+@media (max-width: 575.98px) {
+    .hero-5-trust__chip {
+        white-space: normal;
+        text-align: start;
+    }
+}
+.hero-5-trust__chip:hover {
+    border-color: rgba(var(--bs-primary-rgb), 0.5);
+    background: rgba(var(--bs-primary-rgb), 0.09);
+    color: var(--bs-light);
+}
+.hero-5-trust__chip-icon {
+    font-size: 1.125rem;
+    color: var(--bs-primary);
+    flex-shrink: 0;
+}
+
 /* Hero 6 */
 .hero-6 {
     position: relative;
@@ -7819,6 +7931,12 @@ small,
 }
 .testimonial-section-1__path {
     animation: animateFill 25s infinite linear alternate;
+}
+.testimonial-section-1__avatar {
+    width: 4rem;
+    height: 4rem;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 /* Testimonial Section 2 */
 .testimonial-section-2 {
