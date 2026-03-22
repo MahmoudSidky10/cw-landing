@@ -8,7 +8,7 @@
                                     <div class="d-inline-flex align-items-center gap-2 py-1 px-4 border border-2x border-primary border-opacity-90 rounded-1 bg-primary bg-opacity-10 text-primary-subtle fs-12 mb-6 gsap-fade-in"
                                         data-delay="0.5" data-y="50">
                                         <iconify-icon icon="mingcute:ai-fill" class="flex-shrink-0"></iconify-icon>
-                                        <span class="d-inline-block fw-semibold"> AI-augmented security operations </span>
+                                        <span class="d-inline-block fw-semibold"> AI-agentic security operations </span>
                                     </div>
                                     <h1 class="mb-30 text-light gsap-text-animation" data-delay="0.75"
                                         data-split-type="lines"> Unify alerts, tickets, and SOC work in <span
@@ -101,14 +101,14 @@
                                         <span class="hero-5-trust__chip">
                                             <iconify-icon icon="solar:cloud-storage-bold-duotone"
                                                 class="hero-5-trust__chip-icon"></iconify-icon>
-                                            Cloud &amp; hybrid signals
+                                            Intelligence
                                         </span>
                                     </li>
                                     <li class="gsap-fade-in" data-scroll-trigger="true" data-y="30" data-delay="0.3">
                                         <span class="hero-5-trust__chip">
                                             <iconify-icon icon="solar:document-text-bold-duotone"
                                                 class="hero-5-trust__chip-icon"></iconify-icon>
-                                            Audit-ready trails
+                                            Specialized AI assistants
                                         </span>
                                     </li>
                                 </ul>

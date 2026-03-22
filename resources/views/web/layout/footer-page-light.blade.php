@@ -58,7 +58,7 @@
                                         <h6 class="mb-6">Company</h6>
                                         <ul class="list gap-2">
                                             <li><a href="{{ route('about') }}" class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">About Us</a></li>
-                                            <li><a href="{{ route('service') }}" class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">Services</a></li>
+
                                             <li><a href="{{ route('contact') }}" class="link d-inline-block text-body hover:text-primary-emphasis fw-medium fs-14">Contact Us</a></li>
                                         </ul>
                                     </div>

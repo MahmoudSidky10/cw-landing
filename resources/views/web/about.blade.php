@@ -1,20 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
 @include('web.layout.head')
 
 <body>
     <style>
-        .primary-header {
-            background-color: #000 !important;
-        }
 
         .about-2__separator-icon {
             width: 5rem;
             height: 5rem;
         }
     </style>
-    @include('web.layout.nav')
+    @include('web.layout.nav', ['navClass' => 'primary-header--dark primary-header--fixed primary-header--boxed top-md-3 primary-header-crossed:top-0 primary-header-crossed:full-dark'])
     <div class="preloader">
         <div class="preloader__content">
             <img src="{{ asset('assets/img/logo-light.png') }}" alt="logo" class="img-fluid preloader__img">
@@ -44,7 +41,7 @@
                                             </ol>
                                         </nav>
                                         <h3>About Cyberwatch360</h3>
-                                        <p class="mb-0 max-text-12">Cyberwatch360 (CW360) is an AI-augmented security
+                                        <p class="mb-0 max-text-12">Cyberwatch360 (CW360) is an AI-agentic security
                                             operations platform that unifies alerts, ticketing, and SOC tasks so teams
                                             can respond faster, cut noise, and focus on real threats.</p>
                                     </div>
@@ -303,7 +300,7 @@
                                         <h6 class="fw-semibold fs-20 mb-md-0">Automate</h6>
                                     </div>
                                     <div class="timeline-1__right">
-                                        <h6>From signal to structured response</h6>
+                                        <h6>From alert to structured response</h6>
                                         <p class="mb-0">Ingest via REST, webhooks, syslog, or email; normalize fields;
                                             deduplicate and correlate; auto-generate enriched tickets with IOCs, risk
                                             scores, and MITRE mappings.</p>

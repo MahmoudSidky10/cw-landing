@@ -5,11 +5,9 @@
 
 <body>
     <style>
-        .primary-header {
-            background-color: #000 !important;
-        }
+
     </style>
-    @include('web.layout.nav')
+    @include('web.layout.nav', ['navClass' => 'primary-header--dark primary-header--fixed primary-header--boxed top-md-3 primary-header-crossed:top-0 primary-header-crossed:full-dark'])
     <div class="preloader">
         <div class="preloader__content">
             <img src="{{ asset('assets/img/logo-light.png') }}" alt="Cyberwatch360" class="img-fluid preloader__img">
@@ -44,7 +42,7 @@
                                                 data-bs-target="#faq-g1" aria-expanded="true">What is Cyberwatch360 in one sentence?</button>
                                         </h2>
                                         <div id="faq-g1" class="accordion-collapse collapse show" data-bs-parent="#accordion-faq-general">
-                                            <div class="accordion-body fs-14">Cyberwatch360 (CW360) is an AI-augmented security operations platform that unifies alerts, ticketing, and SOC tasks so teams respond faster, reduce noise, and stay audit-ready.</div>
+                                            <div class="accordion-body fs-14">Cyberwatch360 (CW360) is an AI-agentic security operations platform that unifies alerts, ticketing, and SOC tasks so teams respond faster, reduce noise, and stay audit-ready.</div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">

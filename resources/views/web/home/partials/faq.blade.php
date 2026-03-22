@@ -18,7 +18,7 @@
                                         <button class="accordion-button bg-dark text-light fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-s1" aria-expanded="true"> What is Cyberwatch360 in one sentence? </button>
                                     </h2>
                                     <div id="accordion-s1" class="accordion-collapse collapse show" data-bs-parent="#accordion-separate-rounded">
-                                        <div class="accordion-body fs-14 bg-dark text-light text-opacity-70"> Cyberwatch360 (CW360) is an AI-augmented security operations platform that unifies alerts, ticketing, and SOC tasks so teams respond faster, reduce noise, and stay audit-ready. </div>
+                                        <div class="accordion-body fs-14 bg-dark text-light text-opacity-70"> Cyberwatch360 (CW360) is an AI-agentic security operations platform that unifies alerts, ticketing, and SOC tasks so teams respond faster, reduce noise, and stay audit-ready. </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item gsap-fade-in" data-scroll-trigger="true" data-y="15">

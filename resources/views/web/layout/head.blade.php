@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cyberwatch360 (CW360) is an AI-augmented security operations platform that unifies alerts, ticketing, and SOC tasks—so teams respond faster, cut noise, and focus on real threats. Built for MSSPs and regulated enterprises.">
+    <meta name="description" content="Cyberwatch360 (CW360) is an AI-agentic security operations platform that unifies alerts, ticketing, and SOC tasks—so teams respond faster, cut noise, and focus on real threats. Built for MSSPs and regulated enterprises.">
     <meta name="keywords" content="Cyberwatch360, CW360, SOC platform, security operations, SIEM, EDR, XDR, ITSM, ServiceNow, Jira, MSSP, SAMA compliance, AI security, Zarqaa, incident response, alert triage">
     <meta name="author" content="Cyberwatch360">
     <title>Cyberwatch360</title>

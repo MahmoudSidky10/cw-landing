@@ -1,13 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
 @include('web.layout.head')
 
 <body>
     <style>
-        .primary-header {
-            background-color: #000 !important;
-        }
+
         .ad-1 {
             overflow: hidden;
             min-height: 12rem;
@@ -21,7 +19,7 @@
             object-position: center;
         }
     </style>
-    @include('web.layout.nav')
+    @include('web.layout.nav', ['navClass' => 'primary-header--dark primary-header--fixed primary-header--boxed top-md-3 primary-header-crossed:top-0 primary-header-crossed:full-dark'])
     <div class="preloader">
         <div class="preloader__content">
             <img src="{{ asset('assets/img/logo-light.png') }}" alt="Cyberwatch360" class="img-fluid preloader__img">

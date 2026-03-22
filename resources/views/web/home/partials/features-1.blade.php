@@ -4,7 +4,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 col-xl-7">
-                                <h2 class="mb-0 text-light text-center text-md-start overflow-hidden gsap-text-animation" data-scroll-trigger="true" data-split-type="lines"> Run the SOC on one <span class="text-clip--primary">Cyberwatch360</span> layer
+                                <h2 class="mb-0 text-light text-center text-md-start overflow-hidden gsap-text-animation" data-scroll-trigger="true" data-split-type="lines"> Manage Security Operations From <span class="text-clip--primary">Centralized Console</span>
                                 </h2>
                             </div>
                         </div>
@@ -107,13 +107,13 @@
                             <div class="gradient-border gradient-border--surface-dark p-4 p-md-6 p-lg-12 p-xxl-18 rounded-4 h-100 position-relative z-1 overflow-hidden">
                                 <div class="position-relative z-1 row g-4 align-items-center">
                                     <div class="col-md-6">
-                                        <h4 class="mb-8 text-light"> Cyberwatch360 helps SOCs replace fragmented tools and alert floods with one operational layer—so incidents are triaged faster and teams trust every escalation. </h4>
+                                        <h4 class="mb-8 text-light"> Cyberwatch360 helps SOCs replace fragmented tools and alert floods with one operational layer. </h4>
                                         <a href="{{ route('about') }}" class="btn btn-primary text-dark fw-semibold"> How it works </a>
                                         <div class="d-flex align-items-center flex-wrap row-gap-4 column-gap-6 mt-15">
                                             <div class="gradient-border gradient-border--surface-dark rounded-4 p-4 p-sm-6 max-text-5 poisition-relative overflow-hidden">
                                                 <div class="position-relative z-1">
-                                                    <h4 class="mb-1 text-light">One console</h4>
-                                                    <p class="mb-0 text-light"> Alerts, tickets, and SOC tasks in a single operational view </p>
+                                                    <h4 class="mb-1 text-light">85%</h4>
+                                                    <p class="mb-0 text-light"> SIEM Replacement Ratio </p>
                                                 </div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                                     <g filter="url(#filter0_f_10395_2005)">
@@ -130,8 +130,8 @@
                                             </div>
                                             <div class="gradient-border gradient-border--surface-dark rounded-4 p-4 p-sm-6 max-text-5 poisition-relative overflow-hidden">
                                                 <div class="position-relative z-1">
-                                                    <h4 class="mb-1 text-light">Zarqaa AI</h4>
-                                                    <p class="mb-0 text-light"> Agentic assistance with traceable reasoning—not fixed playbooks only </p>
+                                                    <h4 class="mb-1 text-light">95%</h4>
+                                                    <p class="mb-0 text-light"> Automation Coverage </p>
                                                 </div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                                     <g filter="url(#filter0_f_10395_2000)">

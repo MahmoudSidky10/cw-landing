@@ -1,15 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
 @include('web.layout.head')
 
 <body>
     <style>
-        .primary-header {
-            background-color: #000 !important;
-        }
+
     </style>
-    @include('web.layout.nav')
+    @include('web.layout.nav', ['navClass' => 'primary-header--dark primary-header--fixed primary-header--boxed top-md-3 primary-header-crossed:top-0 primary-header-crossed:full-dark'])
     <div class="preloader">
         <div class="preloader__content">
             <img src="{{ asset('assets/img/logo-light.png') }}" alt="logo" class="img-fluid preloader__img">
@@ -79,16 +77,16 @@
                             <hr class="my-8" />
                             <ul class="list gap-6">
                                 <li>
-                                    <p class="mb-1 fs-18 fw-bold text-heading"> Learn about our services </p>
+                                    <p class="mb-1 fs-18 fw-bold text-heading"> Call Us </p>
                                     <p class="mb-0">+1 302-803-5506</p>
                                 </li>
                                 <li>
-                                    <p class="mb-1 fs-18 fw-bold text-heading"> Talk to our PR department </p>
-                                    <p class="mb-0">support@example.com</p>
+                                    <p class="mb-1 fs-18 fw-bold text-heading"> Email Us </p>
+                                    <p class="mb-0">support@cyberwatch360.com</p>
                                 </li>
                                 <li>
-                                    <p class="mb-1 fs-18 fw-bold text-heading">Join example team</p>
-                                    <p class="mb-0">info@example.com</p>
+                                    <p class="mb-1 fs-18 fw-bold text-heading"> Office Address </p>
+                                    <p class="mb-0">1007 N Orange St, 5302<br>Wilmington, DE 19801</p>
                                 </li>
                             </ul>
                         </div>
@@ -124,53 +122,7 @@
                 </div>
             </div>
             <!-- Contact Form End -->
-            <!-- Contact Details -->
-            <div class="section-space-md-y bg-body-tertiary">
-                <div class="section-space-sm-bottom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <h3 class="mb-0">Build To Impress</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row g-4">
-                        <div class="col-md-6 col-lg-4">
-                            <div class="bg-body rounded p-4 p-md-8 p-lg-4 p-xl-8">
-                                <div class="d-inline-block mb-6">
-                                    <iconify-icon icon="fluent-mdl2:network-tower" class="fs-48"></iconify-icon>
-                                </div>
-                                <h6>Press & Partnership Enquiries</h6>
-                                <p class="mb-0"> Just add a trade‑in when you choose a new product. Once your
-                                    eligible device has been received and verified, we'll credit the value </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="bg-body rounded p-4 p-md-8 p-lg-4 p-xl-8">
-                                <div class="d-inline-block mb-6">
-                                    <iconify-icon icon="mdi:truck-fast-outline" class="fs-48"></iconify-icon>
-                                </div>
-                                <h6>Fast & Quick Deliver Response</h6>
-                                <p class="mb-0"> Just add a trade‑in when you choose a new product. Once your
-                                    eligible device has been received and verified, we'll credit the value </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="bg-body rounded p-4 p-md-8 p-lg-4 p-xl-8">
-                                <div class="d-inline-block mb-6">
-                                    <iconify-icon icon="bi:phone-vibrate" class="fs-48"></iconify-icon>
-                                </div>
-                                <h6>Press & Partnership Enquiries</h6>
-                                <p class="mb-0"> Just add a trade‑in when you choose a new product. Once your
-                                    eligible device has been received and verified, we'll credit the value </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Contact Details End -->
+
             <!-- Map Section -->
             <div class="section-space-bottom bg-body-tertiary">
                 <div class="container">
@@ -178,14 +130,14 @@
                         <div class="col-12">
                             <div class="position-relative z-1 rounded-3 overflow-hidden">
                                 <iframe class="map-view"
-                                    src="https://api.maptiler.com/maps/0a688c97-5c0d-49a3-99a8-a7539d37b24c/?key=A1yO2gr63XPx3wPNZZAX#6.9/25.51973/89.62180"></iframe>
+                                    src="https://maps.google.com/maps?q=1007%20N%20Orange%20St,%20Wilmington,%20DE%2019801,%20USA&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 <div
                                     class="map-view__info d-inline-block rounded bg-body p-4 p-md-8 max-text-9 z-1 start-6 bottom-6 shadow-lg">
-                                    <h6>Our global presence</h6>
-                                    <p> Having 5 offices around the world helps us build flexible teams with ultimate
-                                        expertise and provide top-quality services. </p>
-                                    <a href="#" class="btn btn-sm btn-primary align-items-center">
-                                        <span class="d-inline-block flex-grow-1"> More Of Us </span>
+                                    <h6>Our Office</h6>
+                                    <p> 1007 N Orange St, 5302<br>Wilmington, DE 19801 </p>
+                                    <a href="https://maps.google.com/maps?q=1007%20N%20Orange%20St,%20Wilmington,%20DE%2019801,%20USA" target="_blank" class="btn btn-sm btn-primary align-items-center">
+                                        <span class="d-inline-block flex-grow-1"> Get Directions </span>
                                         <iconify-icon icon="guidance:left-arrow"
                                             class="align-middle fs-20 flex-shrink-0"></iconify-icon>
                                     </a>
