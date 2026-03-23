@@ -14,14 +14,6 @@
     ])
 </li>
 
-<li class="menu-item @if (strpos(url()->current(), 'faqs')) menu-item-active @endif" aria-haspopup="true"
-    data-menu-toggle="hover">
-    @includeIf('admin.layout.aside.main-item', [
-        'href' => '/admin/faqs',
-        'title' => 'FAQs',
-        'icon' => 'menu-icon flaticon-questions-circular-button',
-    ])
-</li>
 <hr>
 <li class="menu-item @if (strpos(url()->current(), 'blog-categories')) menu-item-active @endif" aria-haspopup="true"
     data-menu-toggle="hover">
@@ -38,5 +30,27 @@
         'href' => '/admin/blogs',
         'title' => 'Blog Posts',
         'icon' => 'menu-icon flaticon-file-1',
+    ])
+</li>
+
+<hr>
+
+<li class="menu-item @if (strpos(url()->current(), 'faqs')) menu-item-active @endif" aria-haspopup="true"
+    data-menu-toggle="hover">
+    @includeIf('admin.layout.aside.main-item', [
+        'href' => '/admin/faqs',
+        'title' => 'FAQs',
+        'icon' => 'menu-icon flaticon-questions-circular-button',
+    ])
+</li>
+
+<hr>
+
+<li class="menu-item @if (strpos(url()->current(), 'contacts')) menu-item-active @endif" aria-haspopup="true"
+    data-menu-toggle="hover">
+    @includeIf('admin.layout.aside.main-item', [
+        'href'  => '/admin/contacts',
+        'title' => 'Contact Messages' . (\App\Models\Contact::where('is_read', 0)->count() ? ' (' . \App\Models\Contact::where('is_read', 0)->count() . ')' : ''),
+        'icon'  => 'menu-icon flaticon-email',
     ])
 </li>

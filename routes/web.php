@@ -13,6 +13,7 @@ Route::get('/logout', [LoginOutController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('/contact', [HomeController::class, 'contact'])->name("contact");
+Route::post('/contact', [HomeController::class, 'contactStore'])->name("contact.store");
 Route::get('/about', [HomeController::class, 'about'])->name("about");
 Route::get('/service', [HomeController::class, 'service'])->name("service");
 Route::get('/blog', [HomeController::class, 'blog'])->name("blog");

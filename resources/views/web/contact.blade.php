@@ -92,30 +92,39 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="rounded-3 bg-body p-4 p-lg-8 shadow-lg">
-                                <div class="row g-4">
-                                    <div class="col-12">
-                                        <p class="mb-0 fw-semibold"> Fill out the form and we will contact you </p>
+                                @if(session('success'))
+                                    <div class="alert alert-success mb-4">{{ session('success') }}</div>
+                                @endif
+                                <form method="POST" action="{{ route('contact.store') }}">
+                                    @csrf
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <p class="mb-0 fw-semibold"> Fill out the form and we will contact you </p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="form-label fs-14 fw-medium text-heading"> First Name </label>
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ old('name') }}">
+                                            @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="form-label fs-14 fw-medium text-heading"> Email Address </label>
+                                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}">
+                                            @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label fs-14 fw-medium text-heading"> Subject </label>
+                                            <input type="text" name="subject" class="form-control" placeholder="Enter Your Subject" value="{{ old('subject') }}">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label fs-14 fw-medium text-heading"> Message </label>
+                                            <textarea name="message" class="form-control @error('message') is-invalid @enderror" rows="3" placeholder="Please write details">{{ old('message') }}</textarea>
+                                            @error('message')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary fs-14"> Submit </button>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label fs-14 fw-medium text-heading"> First Name </label>
-                                        <input type="text" class="form-control" placeholder="Name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label class="form-label fs-14 fw-medium text-heading"> Email Address </label>
-                                        <input type="email" class="form-control" placeholder="Email">
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label fs-14 fw-medium text-heading"> Subject </label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Subject">
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label fs-14 fw-medium text-heading"> Message </label>
-                                        <textarea class="form-control" rows="3" placeholder="Please write details"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="button" class="btn btn-primary fs-14"> Submit </button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
