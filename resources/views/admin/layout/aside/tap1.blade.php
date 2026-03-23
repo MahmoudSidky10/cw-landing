@@ -49,19 +49,29 @@
 <li class="menu-item @if (strpos(url()->current(), 'contacts')) menu-item-active @endif" aria-haspopup="true"
     data-menu-toggle="hover">
     @includeIf('admin.layout.aside.main-item', [
-        'href'  => '/admin/contacts',
-        'title' => 'Contact Messages' . (\App\Models\Contact::where('is_read', 0)->count() ? ' (' . \App\Models\Contact::where('is_read', 0)->count() . ')' : ''),
-        'icon'  => 'menu-icon flaticon-email',
+        'href' => '/admin/contacts',
+        'title' =>
+            'Contact Messages' .
+            (\App\Models\Contact::where('is_read', 0)->count()
+                ? ' (' . \App\Models\Contact::where('is_read', 0)->count() . ')'
+                : ''),
+        'icon' => 'menu-icon flaticon-email',
     ])
 </li>
-
-<hr>
+<li class="menu-item @if (strpos(url()->current(), 'social-media')) menu-item-active @endif" aria-haspopup="true"
+    data-menu-toggle="hover">
+    @includeIf('admin.layout.aside.main-item', [
+        'href' => '/admin/social-media',
+        'title' => 'Social Media',
+        'icon' => 'menu-icon flaticon-share',
+    ])
+</li>
 
 <li class="menu-item @if (strpos(url()->current(), 'site-settings')) menu-item-active @endif" aria-haspopup="true"
     data-menu-toggle="hover">
     @includeIf('admin.layout.aside.main-item', [
-        'href'  => '/admin/site-settings',
+        'href' => '/admin/site-settings',
         'title' => 'Settings',
-        'icon'  => 'menu-icon flaticon-settings-1',
+        'icon' => 'menu-icon flaticon-settings-1',
     ])
 </li>

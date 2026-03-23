@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\SocialMediaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dash', [IndexController::class, 'index']);
@@ -22,3 +23,4 @@ Route::get('/site-settings', [SiteSettingController::class, 'index']);
 Route::put('/site-settings', [SiteSettingController::class, 'update'])->name('admin.site-settings.update');
 Route::resource('blogs', BlogController::class);
 Route::resource('blog-categories', BlogCategoryController::class);
+Route::resource('social-media', SocialMediaController::class);

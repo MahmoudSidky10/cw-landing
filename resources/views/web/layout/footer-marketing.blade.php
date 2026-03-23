@@ -49,26 +49,13 @@
                             <div class="col-lg-6">
                                 <ul class="list list-row flex-wrap justify-content-center justify-content-lg-end align-items-center gap-3">
                                     <li><a href="{{ route('contact') }}" class="badge px-4 bg-primary-emphasis text-primary-subtle rounded-pill"> Talk to us </a></li>
+                                    @foreach(\App\Models\SocialMedia::all() as $social)
                                     <li>
-                                        <button type="button" class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18" aria-label="Twitter">
-                                            <iconify-icon icon="si:twitter-duotone"></iconify-icon>
-                                        </button>
+                                        <a href="{{ $social->url }}" target="_blank" class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18">
+                                            <img src="{{ asset('storage/' . $social->icon) }}" alt="social icon" style="width:18px;height:18px;object-fit:contain;">
+                                        </a>
                                     </li>
-                                    <li>
-                                        <button type="button" class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18" aria-label="Facebook">
-                                            <iconify-icon icon="ri:facebook-fill"></iconify-icon>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18" aria-label="LinkedIn">
-                                            <iconify-icon icon="ri:linkedin-fill"></iconify-icon>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="btn btn-sm btn-icon btn-light-subtle rounded-circle shadow fs-18" aria-label="Dribbble">
-                                            <iconify-icon icon="icon-park-outline:dribble"></iconify-icon>
-                                        </button>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

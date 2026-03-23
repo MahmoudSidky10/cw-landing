@@ -3,9 +3,10 @@
     @include('admin.layout.nav', ['title' => ''])
 
     <div class="d-flex flex-column-fluid">
-        <div class="container">
-            <div class="content d-flex flex-column flex-column-fluid">
+        <div class="container-fluid">
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                 <div class="d-flex flex-column-fluid">
+                    <!--begin::Container-->
                     <div class="container-fluid">
 
                         {{-- ── Top stat cards ── --}}
@@ -193,8 +194,10 @@
                                     <div class="card-header border-0" style="padding:20px 24px 0;">
                                         <div class="d-flex align-items-center justify-content-between mb-4">
                                             <div>
-                                                <h5 class="fw-bold text-dark mb-1" style="font-size:15px;">Recent Blog Posts</h5>
-                                                <span id="date-label" style="font-size:12px;color:#a1a5b7;">All dates</span>
+                                                <h5 class="fw-bold text-dark mb-1" style="font-size:15px;">Recent Blog
+                                                    Posts</h5>
+                                                <span id="date-label" style="font-size:12px;color:#a1a5b7;">All
+                                                    dates</span>
                                             </div>
                                             <a href="{{ url('admin/blogs') }}" class="btn btn-sm btn-primary"
                                                 style="border-radius:8px;font-size:12px;padding:6px 14px;">
@@ -203,9 +206,9 @@
                                         </div>
                                         {{-- Date Strip --}}
                                         <div class="d-flex flex-wrap pb-2 mt-3" style="gap:16px;" id="date-strip">
-                                            @foreach($dateStrip as $day)
+                                            @foreach ($dateStrip as $day)
                                                 @php
-                                                    $ds      = $day->format('Y-m-d');
+                                                    $ds = $day->format('Y-m-d');
                                                     $isToday = $day->isToday();
                                                 @endphp
                                                 <a href="javascript:void(0)"
@@ -217,7 +220,8 @@
                                                            font-weight:{{ $isToday ? '700' : '500' }};
                                                            border:2px solid {{ $isToday ? '#bbdefb' : 'transparent' }};
                                                            transition:all .15s;">
-                                                    <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;">
+                                                    <div
+                                                        style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;">
                                                         {{ $day->format('D') }}
                                                     </div>
                                                     <div style="font-size:18px;line-height:1.4;">
@@ -318,31 +322,47 @@
     </div>
 @endsection
 @section('js')
-<script>
-(function () {
-    const ajaxUrl  = '{{ url("admin/dash/recent-blogs") }}';
-    const pills    = document.querySelectorAll('.date-pill');
-    const tbody    = document.getElementById('blogs-tbody');
-    const label    = document.getElementById('date-label');
-    let activeDate = null;
+    <script>
+        (function() {
+            const ajaxUrl = '{{ url('admin/dash/recent-blogs') }}';
+            const pills = document.querySelectorAll('.date-pill');
+            const tbody = document.getElementById('blogs-tbody');
+            const label = document.getElementById('date-label');
+            let activeDate = null;
 
-    const defaultStyle = { bg: '#f5f5f5', color: '#7e8299', border: 'transparent', fw: '500' };
-    const todayStyle   = { bg: '#e3f2fd', color: '#0166ba', border: '#bbdefb',    fw: '700' };
-    const activeStyle  = { bg: '#0166ba', color: '#fff',    border: '#0166ba',    fw: '700' };
+            const defaultStyle = {
+                bg: '#f5f5f5',
+                color: '#7e8299',
+                border: 'transparent',
+                fw: '500'
+            };
+            const todayStyle = {
+                bg: '#e3f2fd',
+                color: '#0166ba',
+                border: '#bbdefb',
+                fw: '700'
+            };
+            const activeStyle = {
+                bg: '#0166ba',
+                color: '#fff',
+                border: '#0166ba',
+                fw: '700'
+            };
 
-    function applyStyle(pill, style) {
-        pill.style.background  = style.bg;
-        pill.style.color       = style.color;
-        pill.style.borderColor = style.border;
-        pill.style.fontWeight  = style.fw;
-    }
+            function applyStyle(pill, style) {
+                pill.style.background = style.bg;
+                pill.style.color = style.color;
+                pill.style.borderColor = style.border;
+                pill.style.fontWeight = style.fw;
+            }
 
-    function renderRows(blogs) {
-        if (!blogs.length) {
-            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8" style="color:#a1a5b7;">No posts found for this date.</td></tr>';
-            return;
-        }
-        tbody.innerHTML = blogs.map((b, i) => `
+            function renderRows(blogs) {
+                if (!blogs.length) {
+                    tbody.innerHTML =
+                        '<tr><td colspan="7" class="text-center py-8" style="color:#a1a5b7;">No posts found for this date.</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = blogs.map((b, i) => `
             <tr>
                 <td style="padding:14px 24px;color:#a1a5b7;font-size:13px;">${i + 1}</td>
                 <td style="padding:14px 8px;">
@@ -368,51 +388,60 @@
                 </td>
             </tr>
         `).join('');
-    }
-
-    function fetchBlogs(date) {
-        tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8"><span style="color:#a1a5b7;">Loading...</span></td></tr>';
-        fetch(`${ajaxUrl}?date=${date}`)
-            .then(r => r.json())
-            .then(data => renderRows(data));
-    }
-
-    pills.forEach(pill => {
-        pill.addEventListener('click', function () {
-            const ds = this.dataset.date;
-
-            if (activeDate === ds) {
-                // deselect
-                activeDate = null;
-                applyStyle(this, this.classList.contains('is-today') ? todayStyle : defaultStyle);
-                label.innerHTML = 'All dates';
-                fetchBlogs('');
-                return;
             }
 
-            // reset all
-            pills.forEach(p => applyStyle(p, p.classList.contains('is-today') ? todayStyle : defaultStyle));
+            function fetchBlogs(date) {
+                tbody.innerHTML =
+                    '<tr><td colspan="7" class="text-center py-8"><span style="color:#a1a5b7;">Loading...</span></td></tr>';
+                fetch(`${ajaxUrl}?date=${date}`)
+                    .then(r => r.json())
+                    .then(data => renderRows(data));
+            }
 
-            activeDate = ds;
-            applyStyle(this, activeStyle);
+            pills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    const ds = this.dataset.date;
 
-            const d = new Date(ds);
-            label.innerHTML = d.toLocaleDateString('en-GB', { weekday:'long', day:'2-digit', month:'short', year:'numeric' })
-                + ' &mdash; <a href="javascript:void(0)" id="clear-date" style="color:#0166ba;">Clear</a>';
+                    if (activeDate === ds) {
+                        // deselect
+                        activeDate = null;
+                        applyStyle(this, this.classList.contains('is-today') ? todayStyle :
+                            defaultStyle);
+                        label.innerHTML = 'All dates';
+                        fetchBlogs('');
+                        return;
+                    }
 
-            document.addEventListener('click', function onClear(e) {
-                if (e.target.id === 'clear-date') {
-                    activeDate = null;
-                    pills.forEach(p => applyStyle(p, p.classList.contains('is-today') ? todayStyle : defaultStyle));
-                    label.innerHTML = 'All dates';
-                    fetchBlogs('');
-                    document.removeEventListener('click', onClear);
-                }
+                    // reset all
+                    pills.forEach(p => applyStyle(p, p.classList.contains('is-today') ? todayStyle :
+                        defaultStyle));
+
+                    activeDate = ds;
+                    applyStyle(this, activeStyle);
+
+                    const d = new Date(ds);
+                    label.innerHTML = d.toLocaleDateString('en-GB', {
+                            weekday: 'long',
+                            day: '2-digit',
+                            month: 'short',
+                            year: 'numeric'
+                        }) +
+                        ' &mdash; <a href="javascript:void(0)" id="clear-date" style="color:#0166ba;">Clear</a>';
+
+                    document.addEventListener('click', function onClear(e) {
+                        if (e.target.id === 'clear-date') {
+                            activeDate = null;
+                            pills.forEach(p => applyStyle(p, p.classList.contains('is-today') ?
+                                todayStyle : defaultStyle));
+                            label.innerHTML = 'All dates';
+                            fetchBlogs('');
+                            document.removeEventListener('click', onClear);
+                        }
+                    });
+
+                    fetchBlogs(ds);
+                });
             });
-
-            fetchBlogs(ds);
-        });
-    });
-})();
-</script>
+        })();
+    </script>
 @endsection
