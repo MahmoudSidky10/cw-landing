@@ -16,5 +16,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name("contact");
 Route::get('/about', [HomeController::class, 'about'])->name("about");
 Route::get('/service', [HomeController::class, 'service'])->name("service");
 Route::get('/blog', [HomeController::class, 'blog'])->name("blog");
+Route::get('/blog/{blog}', [HomeController::class, 'blogDetails'])->name("blog.details");
+Route::get('/blog/id/{id}', [HomeController::class, 'blogById']);
 Route::get('/faq', [HomeController::class, 'faq'])->name("faq");
 Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name("privacy-policy");

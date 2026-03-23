@@ -8,17 +8,35 @@
 <li class="menu-item @if (strpos(url()->current(), 'dash')) menu-item-active @endif" aria-haspopup="true"
     data-menu-toggle="hover">
     @includeIf('admin.layout.aside.main-item', [
-        'href'  => '/admin/dash',
+        'href' => '/admin/dash',
         'title' => trans('language.home'),
-        'icon'  => 'menu-icon flaticon-layers',
+        'icon' => 'menu-icon flaticon-layers',
     ])
 </li>
 
 <li class="menu-item @if (strpos(url()->current(), 'faqs')) menu-item-active @endif" aria-haspopup="true"
     data-menu-toggle="hover">
     @includeIf('admin.layout.aside.main-item', [
-        'href'  => '/admin/faqs',
+        'href' => '/admin/faqs',
         'title' => 'FAQs',
-        'icon'  => 'menu-icon flaticon-questions-circular-button',
+        'icon' => 'menu-icon flaticon-questions-circular-button',
+    ])
+</li>
+<hr>
+<li class="menu-item @if (strpos(url()->current(), 'blog-categories')) menu-item-active @endif" aria-haspopup="true"
+    data-menu-toggle="hover">
+    @includeIf('admin.layout.aside.main-item', [
+        'href' => '/admin/blog-categories',
+        'title' => 'Blog Categories',
+        'icon' => 'menu-icon flaticon-list-2',
+    ])
+</li>
+
+<li class="menu-item @if (strpos(url()->current(), 'blogs') && !strpos(url()->current(), 'blog-categories')) menu-item-active @endif" aria-haspopup="true"
+    data-menu-toggle="hover">
+    @includeIf('admin.layout.aside.main-item', [
+        'href' => '/admin/blogs',
+        'title' => 'Blog Posts',
+        'icon' => 'menu-icon flaticon-file-1',
     ])
 </li>
