@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
+
 class HomeController extends Controller
 {
     public function index()
@@ -31,7 +33,13 @@ class HomeController extends Controller
 
     public function faq()
     {
-        return view('web.faq');
+        $faqs = Faq::where('is_active', 1)
+            ->orderBy('category')
+            ->orderBy('sort_order')
+            ->get()
+            ->groupBy('category');
+
+        return view('web.faq', compact('faqs'));
     }
 
     public function privacyPolicy()

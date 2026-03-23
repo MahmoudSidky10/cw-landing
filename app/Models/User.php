@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_type_id',
+        'employee_type',
+        'user_name',
     ];
 
     /**
@@ -42,4 +45,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin(): bool
+    {
+        return $this->user_type_id == 1;
+    }
+
+    public function isEmployee(): bool
+    {
+        return $this->user_type_id == 3;
+    }
+
+    public function isUser(): bool
+    {
+        return $this->user_type_id == 2;
+    }
 }

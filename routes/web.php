@@ -1,7 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Auth\LoginOutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
+// Admin Auth Routes
+Route::get('/admin', [LoginController::class, 'index']);
+Route::post('/admin-login', [LoginController::class, 'login']);
+Route::post('/admin-logout', [LoginOutController::class, 'index']);
+Route::get('/logout', [LoginOutController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('/contact', [HomeController::class, 'contact'])->name("contact");
