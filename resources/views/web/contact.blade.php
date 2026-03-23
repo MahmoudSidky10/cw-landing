@@ -78,15 +78,15 @@
                             <ul class="list gap-6">
                                 <li>
                                     <p class="mb-1 fs-18 fw-bold text-heading"> Call Us </p>
-                                    <p class="mb-0">+1 302-803-5506</p>
+                                    <p class="mb-0">{{ $settings->phone }}</p>
                                 </li>
                                 <li>
                                     <p class="mb-1 fs-18 fw-bold text-heading"> Email Us </p>
-                                    <p class="mb-0">support@cyberwatch360.com</p>
+                                    <p class="mb-0">{{ $settings->email }}</p>
                                 </li>
                                 <li>
                                     <p class="mb-1 fs-18 fw-bold text-heading"> Office Address </p>
-                                    <p class="mb-0">1007 N Orange St, 5302<br>Wilmington, DE 19801</p>
+                                    <p class="mb-0">{{ $settings->address }}<br>{{ $settings->address_2 }}</p>
                                 </li>
                             </ul>
                         </div>

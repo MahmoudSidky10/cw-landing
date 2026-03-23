@@ -54,3 +54,14 @@
         'icon'  => 'menu-icon flaticon-email',
     ])
 </li>
+
+<hr>
+
+<li class="menu-item @if (strpos(url()->current(), 'site-settings')) menu-item-active @endif" aria-haspopup="true"
+    data-menu-toggle="hover">
+    @includeIf('admin.layout.aside.main-item', [
+        'href'  => '/admin/site-settings',
+        'title' => 'Settings',
+        'icon'  => 'menu-icon flaticon-settings-1',
+    ])
+</li>

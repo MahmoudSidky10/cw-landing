@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Faq;
+use App\Models\SiteSetting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,7 +17,8 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('web.contact');
+        $settings = SiteSetting::instance();
+        return view('web.contact', compact('settings'));
     }
 
     public function contactStore(Request $request)
@@ -43,7 +45,7 @@ class HomeController extends Controller
         return view('web.service');
     }
 
-    public function blog(\Illuminate\Http\Request $request)
+    public function blog(Request $request)
     {
         $search   = $request->input('search');
         $category = $request->input('category');
