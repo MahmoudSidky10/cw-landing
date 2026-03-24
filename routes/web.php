@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\LoginOutController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 
 // Admin Auth Routes
 Route::get('/admin', [LoginController::class, 'index']);
@@ -21,3 +22,8 @@ Route::get('/blog/{blog}', [HomeController::class, 'blogDetails'])->name("blog.d
 Route::get('/blog/id/{id}', [HomeController::class, 'blogById']);
 Route::get('/faq', [HomeController::class, 'faq'])->name("faq");
 Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name("privacy-policy");
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+    return 'Storage linked!';
+});
