@@ -147,9 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var themeDropdown = document.querySelector(".theme-settings");
     var themeDropdownIcon = document.getElementById("themeDropdownIcon");
     var savedTheme = "dark";
-    var currentTheme = savedTheme || "dark";
+    var currentTheme = "dark";
     document.documentElement.setAttribute("data-bs-theme", currentTheme);
-    updateThemeIcon(currentTheme);
+    updateThemeIcon("dark");
     if (themeDropdown) {
         themeDropdown.addEventListener("click", function (e) {
             var target = e.target.closest("#lightTheme, #darkTheme");
