@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark" data-theme="home-3">
 @include('web.layout.head')
 
-<body>
+<body class="bg-black">
 @include('web.layout.nav')
 <div class="preloader">
     <div class="preloader__content">

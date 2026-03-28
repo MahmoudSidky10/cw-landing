@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light" data-theme="home-3">
+<html lang="en" data-bs-theme="dark" data-theme="home-3">
 
 @include('web.layout.head')
 
