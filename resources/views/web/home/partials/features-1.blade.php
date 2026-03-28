@@ -1,10 +1,16 @@
+@php
+    $settings = $settings ?? \App\Models\SiteSetting::instance();
+    $blocks = $settings->mergedHomeFeaturesBlocks();
+    $img = fn (?string $p) => \App\Models\SiteSetting::featureImageUrl($p);
+    $href = fn (?string $r) => \App\Models\SiteSetting::featureTitleHref($r);
+@endphp
             <!-- Feature Section -->
             <div class="section-space-md-y">
                 <div class="section-space-sm-bottom">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 col-xl-7">
-                                <h2 class="mb-0 text-light text-center text-md-start overflow-hidden gsap-text-animation" data-scroll-trigger="true" data-split-type="lines"> Manage Security Operations From <span class="text-clip--primary">Centralized Console</span>
+                                <h2 class="mb-0 text-light text-center text-md-start overflow-hidden gsap-text-animation" data-scroll-trigger="true" data-split-type="lines"> {{ $settings->resolvedHomeFeaturesTitleLine1() }} <span class="text-clip--primary">{{ $settings->resolvedHomeFeaturesTitleHighlight() }}</span>
                                 </h2>
                             </div>
                         </div>
@@ -20,13 +26,13 @@
                                             <iconify-icon icon="mingcute:ai-fill"></iconify-icon>
                                         </span>
                                     </button>
-                                    <img src="{{ asset('assets/img/cw/cw-threat-monitor.jpg') }}" alt="Security monitoring and alert correlation" class="img-fluid flex-grow-1 rounded-3">
+                                    <img src="{{ $img($blocks[0]['image'] ?? null) }}" alt="{{ $blocks[0]['alt'] ?? '' }}" class="img-fluid flex-grow-1 rounded-3">
                                 </div>
                                 <div class="position-relative z-1">
                                     <h6 class="line-clamp line-clamp--1">
-                                        <a href="{{ route('about') }}" class="link text-light hover:text-primary"> Unified alert operations </a>
+                                        <a href="{{ $href($blocks[0]['title_link'] ?? null) }}" class="link text-light hover:text-primary"> {{ $blocks[0]['title'] ?? '' }} </a>
                                     </h6>
-                                    <p class="mb-0 text-light max-text-9"> Ingest SIEM, EDR/XDR, cloud, and network signals into one console—with parsing, normalization, deduplication, and AI-assisted correlation to cut alert noise. </p>
+                                    <p class="mb-0 text-light max-text-9"> {{ $blocks[0]['body'] ?? '' }} </p>
                                 </div>
                                 <svg width="760" height="503" viewBox="0 0 760 503" fill="none" xmlns="http://www.w3.org/2000/svg" class="position-absolute start-50 bottom-0 translate-middle-x pointer-none">
                                     <g filter="url(#filter0_f_10139_1212)">
@@ -45,21 +51,21 @@
                         <div class="col-md-6 col-xl-5 gsap-fade-in" data-scroll-trigger="true" data-y="25" data-delay="0.2">
                             <div class="gradient-border gradient-border--surface-dark rounded-4 h-100 p-4 p-md-8 position-relative z-1">
                                 <div class="mb-6">
-                                    <img src="{{ asset('assets/img/cw/cw-analyst-work.jpg') }}" alt="SOC analyst with security workflows" class="img-fluid flex-grow-1 rounded-3">
+                                    <img src="{{ $img($blocks[1]['image'] ?? null) }}" alt="{{ $blocks[1]['alt'] ?? '' }}" class="img-fluid flex-grow-1 rounded-3">
                                 </div>
                                 <h6 class="line-clamp line-clamp--1">
-                                    <a href="{{ route('about') }}" class="link text-light hover:text-primary"> Zarqaa: agentic AI </a>
+                                    <a href="{{ $href($blocks[1]['title_link'] ?? null) }}" class="link text-light hover:text-primary"> {{ $blocks[1]['title'] ?? '' }} </a>
                                 </h6>
-                                <p class="mb-0 text-light max-text-9"> Go beyond rigid playbooks—Zarqaa reasons across signals and tools like a fast L1 analyst, with recommendations you can trace in a reasoning log. </p>
+                                <p class="mb-0 text-light max-text-9"> {{ $blocks[1]['body'] ?? '' }} </p>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 gsap-fade-in" data-scroll-trigger="true" data-y="25" data-delay="0.3">
                             <div class="gradient-border gradient-border--surface-dark rounded-4 h-100 position-relative z-1 overflow-hidden blend-y-end">
                                 <div class="p-4 p-md-8 position-relative z-1">
                                     <h6 class="line-clamp line-clamp--1">
-                                        <a href="{{ route('about') }}" class="link text-light hover:text-primary"> Your security stack </a>
+                                        <a href="{{ $href($blocks[2]['title_link'] ?? null) }}" class="link text-light hover:text-primary"> {{ $blocks[2]['title'] ?? '' }} </a>
                                     </h6>
-                                    <p class="mb-0 text-light max-text-9"> Connect the products your team already runs—APIs, webhooks, and integrations—without ripping out the toolchain that powers your SOC. </p>
+                                    <p class="mb-0 text-light max-text-9"> {{ $blocks[2]['body'] ?? '' }} </p>
                                 </div>
                                 @include('web.home.partials.security-stack-marquee')
                                 <svg width="424" height="421" viewBox="0 0 424 421" fill="none" xmlns="http://www.w3.org/2000/svg" class="position-absolute start-0 top-0 pointer-none">
@@ -84,36 +90,36 @@
                         <div class="col-md-6 col-lg-4 gsap-fade-in" data-scroll-trigger="true" data-y="25" data-delay="0.4">
                             <div class="gradient-border gradient-border--surface-dark rounded-4 h-100 overflow-hidden p-4 p-md-8">
                                 <div class="mb-6">
-                                    <img src="{{ asset('assets/img/cw/cw-team-soc.jpg') }}" alt="Security operations and collaboration" class="img-fluid rounded-3">
+                                    <img src="{{ $img($blocks[3]['image'] ?? null) }}" alt="{{ $blocks[3]['alt'] ?? '' }}" class="img-fluid rounded-3">
                                 </div>
                                 <h6 class="line-clamp line-clamp--1">
-                                    <a href="{{ route('about') }}" class="link text-light hover:text-primary"> Tickets &amp; tasks </a>
+                                    <a href="{{ $href($blocks[3]['title_link'] ?? null) }}" class="link text-light hover:text-primary"> {{ $blocks[3]['title'] ?? '' }} </a>
                                 </h6>
-                                <p class="mb-0 text-light max-text-9"> Enriched work items for ITSM platforms—IOCs, risk scores, MITRE context, assignments, SLAs, and notifications across email, Slack, and Microsoft Teams. </p>
+                                <p class="mb-0 text-light max-text-9"> {{ $blocks[3]['body'] ?? '' }} </p>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-4 gsap-fade-in" data-scroll-trigger="true" data-y="25" data-delay="0.5">
                             <div class="gradient-border gradient-border--surface-dark rounded-4 h-100 overflow-hidden p-4 p-md-8">
                                 <div class="mb-6">
-                                    <img src="{{ asset('assets/img/cw/cw-network-abstract.jpg') }}" alt="Global network and compliance-ready operations" class="img-fluid rounded-3">
+                                    <img src="{{ $img($blocks[4]['image'] ?? null) }}" alt="{{ $blocks[4]['alt'] ?? '' }}" class="img-fluid rounded-3">
                                 </div>
                                 <h6 class="line-clamp line-clamp--1">
-                                    <a href="{{ route('about') }}" class="link text-light hover:text-primary"> Compliance-ready ops </a>
+                                    <a href="{{ $href($blocks[4]['title_link'] ?? null) }}" class="link text-light hover:text-primary"> {{ $blocks[4]['title'] ?? '' }} </a>
                                 </h6>
-                                <p class="mb-0 text-light max-text-9"> Centralized configuration for categories, priorities, workflows, and roles—so the same model flows from triage through execution with audit-friendly logging. </p>
+                                <p class="mb-0 text-light max-text-9"> {{ $blocks[4]['body'] ?? '' }} </p>
                             </div>
                         </div>
                         <div class="col-12 gsap-fade-in" data-scroll-trigger="true" data-y="25" data-delay="0.6">
                             <div class="gradient-border gradient-border--surface-dark p-4 p-md-6 p-lg-12 p-xxl-18 rounded-4 h-100 position-relative z-1 overflow-hidden">
                                 <div class="position-relative z-1 row g-4 align-items-center">
                                     <div class="col-md-6">
-                                        <h4 class="mb-8 text-light"> Cyberwatch360 helps SOCs replace fragmented tools and alert floods with one operational layer. </h4>
-                                        <a href="{{ route('about') }}" class="btn btn-primary text-dark fw-semibold"> How it works </a>
+                                        <h4 class="mb-8 text-light"> {{ $blocks[5]['headline'] ?? '' }} </h4>
+                                        <a href="{{ $href($blocks[5]['button_link'] ?? null) }}" class="btn btn-primary text-dark fw-semibold"> {{ $blocks[5]['button_text'] ?? '' }} </a>
                                         <div class="d-flex align-items-center flex-wrap row-gap-4 column-gap-6 mt-15">
                                             <div class="gradient-border gradient-border--surface-dark rounded-4 p-4 p-sm-6 max-text-5 poisition-relative overflow-hidden">
                                                 <div class="position-relative z-1">
-                                                    <h4 class="mb-1 text-light">85%</h4>
-                                                    <p class="mb-0 text-light"> SIEM Replacement Ratio </p>
+                                                    <h4 class="mb-1 text-light">{{ $blocks[5]['stats'][0]['value'] ?? '' }}</h4>
+                                                    <p class="mb-0 text-light"> {{ $blocks[5]['stats'][0]['label'] ?? '' }} </p>
                                                 </div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                                     <g filter="url(#filter0_f_10395_2005)">
@@ -130,8 +136,8 @@
                                             </div>
                                             <div class="gradient-border gradient-border--surface-dark rounded-4 p-4 p-sm-6 max-text-5 poisition-relative overflow-hidden">
                                                 <div class="position-relative z-1">
-                                                    <h4 class="mb-1 text-light">95%</h4>
-                                                    <p class="mb-0 text-light"> Automation Coverage </p>
+                                                    <h4 class="mb-1 text-light">{{ $blocks[5]['stats'][1]['value'] ?? '' }}</h4>
+                                                    <p class="mb-0 text-light"> {{ $blocks[5]['stats'][1]['label'] ?? '' }} </p>
                                                 </div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="97" height="99" viewBox="0 0 97 99" fill="none" class="position-absolute start-0 top-0 pointer-none">
                                                     <g filter="url(#filter0_f_10395_2000)">
@@ -153,22 +159,22 @@
                                             <li class="d-flex align-items-start gap-8 pb-12">
                                                 <div class="d-grid place-content-center w-12 h-12 rounded-circle gradient-border gradient-border--surface-dark shadow-lg fw-bold text-light flex-shrink-0"> 01 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="text-light">Problem</h6>
-                                                    <p class="mb-0 text-light"> Modern SOCs drown in disconnected SIEM, EDR, and ITSM screens—critical incidents get missed, triage burns out analysts, and compliance expectations keep rising. </p>
+                                                    <h6 class="text-light">{{ $blocks[5]['timeline'][0]['title'] ?? '' }}</h6>
+                                                    <p class="mb-0 text-light"> {{ $blocks[5]['timeline'][0]['body'] ?? '' }} </p>
                                                 </div>
                                             </li>
                                             <li class="d-flex align-items-start gap-8 pb-12">
                                                 <div class="d-grid place-content-center w-12 h-12 rounded-circle gradient-border gradient-border--surface-primary text-dark shadow-lg fw-bold text-light flex-shrink-0"> 02 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="text-light">Solution</h6>
-                                                    <p class="mb-0 text-light"> Cyberwatch360 unifies ingestion, correlation, ticketing, and tasks—while Zarqaa prioritizes real threats and explains its recommendations. </p>
+                                                    <h6 class="text-light">{{ $blocks[5]['timeline'][1]['title'] ?? '' }}</h6>
+                                                    <p class="mb-0 text-light"> {{ $blocks[5]['timeline'][1]['body'] ?? '' }} </p>
                                                 </div>
                                             </li>
                                             <li class="d-flex align-items-start gap-8 pb-12">
                                                 <div class="d-grid place-content-center w-12 h-12 rounded-circle gradient-border gradient-border--surface-dark shadow-lg fw-bold text-light flex-shrink-0"> 03 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="text-light">Who it is for</h6>
-                                                    <p class="mb-0 text-light"> MSSPs needing multi-tenant efficiency, regulated enterprises (including SAMA-aligned programs), and lean teams that need 24/7 coverage without a massive SOC bench. </p>
+                                                    <h6 class="text-light">{{ $blocks[5]['timeline'][2]['title'] ?? '' }}</h6>
+                                                    <p class="mb-0 text-light"> {{ $blocks[5]['timeline'][2]['body'] ?? '' }} </p>
                                                 </div>
                                             </li>
                                         </ul>

@@ -25,7 +25,7 @@
                                     <div class="alert alert-success mb-6">{{ session('success') }}</div>
                                 @endif
 
-                                <form method="POST" action="{{ route('admin.site-settings.update') }}">
+                                <form method="POST" action="{{ route('admin.site-settings.update') }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
 
@@ -82,6 +82,201 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <hr class="my-10">
+
+                                    <h4 class="fw-bold text-dark mb-1">Home — Security operations section</h4>
+                                    <p class="text-muted fs-13 mb-6">Title and cards under “Manage Security Operations…” on the homepage. For link fields, use a route name (e.g. <code>about</code>, <code>contact</code>) or leave empty for “#”. Images: upload a file or set a path such as <code>assets/img/cw/cw-threat-monitor.jpg</code>.</p>
+
+                                    <div class="row mb-5">
+                                        <div class="form-group col-md-6 mb-5">
+                                            <label class="fw-bold text-dark mb-2">Section title (before highlight)</label>
+                                            <input type="text" name="home_features_title_line1" class="form-control"
+                                                value="{{ old('home_features_title_line1', $settings->home_features_title_line1) }}"
+                                                placeholder="{{ \App\Models\SiteSetting::defaultHomeFeaturesTitleLine1() }}">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-5">
+                                            <label class="fw-bold text-dark mb-2">Highlighted phrase</label>
+                                            <input type="text" name="home_features_title_highlight" class="form-control"
+                                                value="{{ old('home_features_title_highlight', $settings->home_features_title_highlight) }}"
+                                                placeholder="{{ \App\Models\SiteSetting::defaultHomeFeaturesTitleHighlight() }}">
+                                        </div>
+                                    </div>
+
+                                    @foreach ([0 => 'Large card (left)', 1 => 'Medium card (right)', 2 => 'Security stack (text only)', 3 => 'Small card', 4 => 'Small card'] as $idx => $label)
+                                        @php $b = $blocks[$idx] ?? []; @endphp
+                                        <div class="card border mb-5">
+                                            <div class="card-header bg-light"><strong>{{ $label }}</strong></div>
+                                            <div class="card-body">
+                                                @if (($b['type'] ?? '') !== 'stack_text')
+                                                    <div class="form-group mb-4">
+                                                        <label class="fw-bold text-dark mb-2">Image</label>
+                                                        @if (!empty($b['image']))
+                                                            <div class="mb-2"><img src="{{ \App\Models\SiteSetting::featureImageUrl($b['image']) }}" alt="" style="max-height:120px;border-radius:8px;"></div>
+                                                        @endif
+                                                        <input type="file" name="feature_image_{{ $idx }}" class="form-control" accept="image/*">
+                                                        <input type="text" name="blocks[{{ $idx }}][image]" class="form-control mt-2"
+                                                            value="{{ old('blocks.'.$idx.'.image', $b['image'] ?? '') }}"
+                                                            placeholder="Path or leave after upload">
+                                                    </div>
+                                                    <div class="form-group mb-4">
+                                                        <label class="fw-bold text-dark mb-2">Image alt text</label>
+                                                        <input type="text" name="blocks[{{ $idx }}][alt]" class="form-control"
+                                                            value="{{ old('blocks.'.$idx.'.alt', $b['alt'] ?? '') }}">
+                                                    </div>
+                                                @endif
+                                                <div class="form-group mb-4">
+                                                    <label class="fw-bold text-dark mb-2">Title</label>
+                                                    <input type="text" name="blocks[{{ $idx }}][title]" class="form-control"
+                                                        value="{{ old('blocks.'.$idx.'.title', $b['title'] ?? '') }}">
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label class="fw-bold text-dark mb-2">Title link (route name)</label>
+                                                    <input type="text" name="blocks[{{ $idx }}][title_link]" class="form-control"
+                                                        value="{{ old('blocks.'.$idx.'.title_link', $b['title_link'] ?? '') }}"
+                                                        placeholder="about">
+                                                </div>
+                                                <div class="form-group mb-0">
+                                                    <label class="fw-bold text-dark mb-2">Body</label>
+                                                    <textarea name="blocks[{{ $idx }}][body]" class="form-control" rows="3">{{ old('blocks.'.$idx.'.body', $b['body'] ?? '') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                    @php $b5 = $blocks[5] ?? []; @endphp
+                                    <div class="card border mb-5">
+                                        <div class="card-header bg-light"><strong>Bottom wide block</strong></div>
+                                        <div class="card-body">
+                                            <div class="form-group mb-4">
+                                                <label class="fw-bold text-dark mb-2">Headline</label>
+                                                <textarea name="blocks[5][headline]" class="form-control" rows="2">{{ old('blocks.5.headline', $b5['headline'] ?? '') }}</textarea>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label class="fw-bold text-dark mb-2">Button text</label>
+                                                    <input type="text" name="blocks[5][button_text]" class="form-control"
+                                                        value="{{ old('blocks.5.button_text', $b5['button_text'] ?? '') }}">
+                                                </div>
+                                                <div class="form-group col-md-6 mb-4">
+                                                    <label class="fw-bold text-dark mb-2">Button link (route name)</label>
+                                                    <input type="text" name="blocks[5][button_link]" class="form-control"
+                                                        value="{{ old('blocks.5.button_link', $b5['button_link'] ?? '') }}"
+                                                        placeholder="about">
+                                                </div>
+                                            </div>
+                                            <p class="fw-bold text-dark mb-2">Stats</p>
+                                            <div class="row">
+                                                @foreach ([0, 1] as $si)
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mb-3">
+                                                            <label class="small text-muted">Value {{ $si + 1 }}</label>
+                                                            <input type="text" name="blocks[5][stats][{{ $si }}][value]" class="form-control"
+                                                                value="{{ old('blocks.5.stats.'.$si.'.value', data_get($b5, 'stats.'.$si.'.value', '')) }}">
+                                                        </div>
+                                                        <div class="form-group mb-3">
+                                                            <label class="small text-muted">Label {{ $si + 1 }}</label>
+                                                            <input type="text" name="blocks[5][stats][{{ $si }}][label]" class="form-control"
+                                                                value="{{ old('blocks.5.stats.'.$si.'.label', data_get($b5, 'stats.'.$si.'.label', '')) }}">
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <p class="fw-bold text-dark mb-2">Timeline</p>
+                                            @foreach ([0, 1, 2] as $ti)
+                                                <div class="border rounded p-3 mb-3">
+                                                    <div class="form-group mb-2">
+                                                        <label class="small text-muted">Step {{ $ti + 1 }} title</label>
+                                                        <input type="text" name="blocks[5][timeline][{{ $ti }}][title]" class="form-control"
+                                                            value="{{ old('blocks.5.timeline.'.$ti.'.title', data_get($b5, 'timeline.'.$ti.'.title', '')) }}">
+                                                    </div>
+                                                    <div class="form-group mb-0">
+                                                        <label class="small text-muted">Step {{ $ti + 1 }} body</label>
+                                                        <textarea name="blocks[5][timeline][{{ $ti }}][body]" class="form-control" rows="2">{{ old('blocks.5.timeline.'.$ti.'.body', data_get($b5, 'timeline.'.$ti.'.body', '')) }}</textarea>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-10">
+
+                                    <h4 class="fw-bold text-dark mb-1">Home — “From alert to structured response…”</h4>
+                                    <p class="text-muted fs-13 mb-6">Section title, hero image, and the eight feature columns below it. Icon names use the <a href="https://icon-sets.iconify.design/" target="_blank" rel="noopener">Iconify</a> format (e.g. <code>carbon:api-1</code>).</p>
+
+                                    <div class="row mb-5">
+                                        <div class="form-group col-md-6 mb-5">
+                                            <label class="fw-bold text-dark mb-2">Title (before highlight)</label>
+                                            <input type="text" name="home_features2_title_line1" class="form-control"
+                                                value="{{ old('home_features2_title_line1', $settings->home_features2_title_line1) }}"
+                                                placeholder="{{ \App\Models\SiteSetting::defaultHomeFeatures2TitleLine1() }}">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-5">
+                                            <label class="fw-bold text-dark mb-2">Highlighted phrase</label>
+                                            <input type="text" name="home_features2_title_highlight" class="form-control"
+                                                value="{{ old('home_features2_title_highlight', $settings->home_features2_title_highlight) }}"
+                                                placeholder="{{ \App\Models\SiteSetting::defaultHomeFeatures2TitleHighlight() }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="card border mb-5">
+                                        <div class="card-header bg-light"><strong>Hero image</strong></div>
+                                        <div class="card-body">
+                                            @php
+                                                $heroPath = old('home_features2_hero_image', $settings->home_features2_hero_image ?: \App\Models\SiteSetting::defaultHomeFeatures2HeroImage());
+                                            @endphp
+                                            @if ($heroPath)
+                                                <div class="mb-3"><img src="{{ \App\Models\SiteSetting::featureImageUrl($heroPath) }}" alt="" style="max-height:160px;border-radius:8px;"></div>
+                                            @endif
+                                            <div class="form-group mb-4">
+                                                <label class="fw-bold text-dark mb-2">Upload image</label>
+                                                <input type="file" name="feature2_hero_image" class="form-control" accept="image/*">
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label class="fw-bold text-dark mb-2">Image path (or leave after upload)</label>
+                                                <input type="text" name="home_features2_hero_image" class="form-control"
+                                                    value="{{ $heroPath }}"
+                                                    placeholder="{{ \App\Models\SiteSetting::defaultHomeFeatures2HeroImage() }}">
+                                            </div>
+                                            <div class="form-group mb-0">
+                                                <label class="fw-bold text-dark mb-2">Image alt text</label>
+                                                <input type="text" name="home_features2_hero_alt" class="form-control"
+                                                    value="{{ old('home_features2_hero_alt', $settings->home_features2_hero_alt) }}"
+                                                    placeholder="{{ \App\Models\SiteSetting::defaultHomeFeatures2HeroAlt() }}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @foreach ($blocks2 as $idx2 => $c2)
+                                        <div class="card border mb-4">
+                                            <div class="card-header bg-light"><strong>Feature column {{ $idx2 + 1 }}</strong></div>
+                                            <div class="card-body">
+                                                <div class="form-group mb-3">
+                                                    <label class="fw-bold text-dark mb-2">Icon (Iconify)</label>
+                                                    <input type="text" name="blocks2[{{ $idx2 }}][icon]" class="form-control"
+                                                        value="{{ old('blocks2.'.$idx2.'.icon', $c2['icon'] ?? '') }}"
+                                                        placeholder="carbon:api-1">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label class="fw-bold text-dark mb-2">Title</label>
+                                                    <input type="text" name="blocks2[{{ $idx2 }}][title]" class="form-control"
+                                                        value="{{ old('blocks2.'.$idx2.'.title', $c2['title'] ?? '') }}">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label class="fw-bold text-dark mb-2">Title link (route name)</label>
+                                                    <input type="text" name="blocks2[{{ $idx2 }}][title_link]" class="form-control"
+                                                        value="{{ old('blocks2.'.$idx2.'.title_link', $c2['title_link'] ?? '') }}"
+                                                        placeholder="about">
+                                                </div>
+                                                <div class="form-group mb-0">
+                                                    <label class="fw-bold text-dark mb-2">Body</label>
+                                                    <textarea name="blocks2[{{ $idx2 }}][body]" class="form-control" rows="3">{{ old('blocks2.'.$idx2.'.body', $c2['body'] ?? '') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                    @include('admin.settings.about-page', ['about' => $about])
 
                                     <button type="submit" class="btn btn-primary px-8">
                                         <i class="fa fa-save me-2"></i> Save Settings

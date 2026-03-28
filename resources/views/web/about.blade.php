@@ -6,6 +6,8 @@
 <body class="bg-black">
 
 @include('web.layout.nav')
+@php($a = ($settings ?? \App\Models\SiteSetting::instance())->mergedAboutContent())
+@php($media = fn (?string $p) => \App\Models\SiteSetting::aboutMediaUrl($p))
 <div class="preloader">
     <div class="preloader__content">
         <img src="{{ asset('assets/img/logo-light.png') }}" alt="logo" class="img-fluid preloader__img">
@@ -76,15 +78,10 @@
                                         class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
                                         <iconify-icon icon="uim:check-circle"
                                                       class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                        <span class="d-inline-block flex-grow-1 fw-medium"> About Us </span>
+                                        <span class="d-inline-block flex-grow-1 fw-medium"> {{ $a['mission']['badge'] ?? '' }} </span>
                                     </span>
-                                <h3 class="max-text-4 mx-auto">Our mission</h3>
-                                <p class="mb-0 fw-semibold">We enhance cybersecurity operations through a smart,
-                                    unified platform that brings together alerts, ticketing, and Security Operations
-                                    Center (SOC) work in one place. Using advanced AI and machine learning, we help
-                                    organizations automate repetitive work, reduce response times, and shrink the
-                                    effort required to manage incidents—so analysts spend less time on triage and
-                                    more time stopping real attacks.</p>
+                                <h3 class="max-text-4 mx-auto">{{ $a['mission']['title'] ?? '' }}</h3>
+                                <p class="mb-0 fw-semibold">{{ $a['mission']['body'] ?? '' }}</p>
                             </div>
                         </div>
                     </div>
@@ -94,8 +91,8 @@
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-10 col-lg-8">
                         <div class="text-center">
-                            <img src="{{ asset('assets/img/cw/cw-about-hero.jpg') }}"
-                                 alt="Cyberwatch360 team members collaborating in a modern office"
+                            <img src="{{ $media($a['mission']['image'] ?? null) }}"
+                                 alt="{{ $a['mission']['image_alt'] ?? '' }}"
                                  class="img-fluid rounded-3">
                         </div>
                     </div>
@@ -158,19 +155,19 @@
                                     class="btn btn-primary btn-sm align-items-center cursor-default mb-4 pointer-default">
                                     <iconify-icon icon="uim:check-circle"
                                                   class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                    <span class="d-inline-block flex-grow-1 fw-medium"> About Us </span>
+                                    <span class="d-inline-block flex-grow-1 fw-medium"> {{ $a['why_different']['badge'] ?? '' }} </span>
                                 </span>
-                            <h3 class="mb-0">Why Cyberwatch360 is different</h3>
+                            <h3 class="mb-0">{{ $a['why_different']['title'] ?? '' }}</h3>
                         </div>
                         <div class="col-md-5">
-                            <img src="{{ asset('assets/img/cw/cw-about-mobile.jpg') }}"
-                                 alt="Cyberwatch360 security operations"
+                            <img src="{{ $media($a['why_different']['mobile_image'] ?? null) }}"
+                                 alt="{{ $a['why_different']['mobile_alt'] ?? '' }}"
                                  class="img-fluid d-xl-none rounded-3">
                             <div class="d-none d-xl-inline-block position-relative z-1">
-                                <img src="{{ asset('assets/img/about-2-img-a.png') }}"
-                                     alt="Certified capability highlights" class="img-fluid">
-                                <img src="{{ asset('assets/img/about-2-img-b.png') }}"
-                                     alt="Security professional reviewing data on a tablet"
+                                <img src="{{ $media($a['why_different']['img_a'] ?? null) }}"
+                                     alt="{{ $a['why_different']['img_a_alt'] ?? '' }}" class="img-fluid">
+                                <img src="{{ $media($a['why_different']['img_b'] ?? null) }}"
+                                     alt="{{ $a['why_different']['img_b_alt'] ?? '' }}"
                                      class="img-fluid about-2__img">
                             </div>
                         </div>
@@ -179,6 +176,7 @@
             </div>
             <div class="container">
                 <div class="row g-4 about-2__separator">
+                    @foreach ($a['why_different']['items'] ?? [] as $whyItem)
                     <div class="col-md-6">
                         <div
                             class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
@@ -186,75 +184,17 @@
                                 <div
                                     class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
                                     aria-hidden="true">
-                                    <iconify-icon icon="solar:shield-warning-bold-duotone"
+                                    <iconify-icon icon="{{ $whyItem['icon'] ?? 'mdi:information' }}"
                                                   class="fs-40"></iconify-icon>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h6>Unified alert operations</h6>
-                                <p class="mb-0">Aggregate SIEM, EDR/XDR, firewalls, cloud sources (e.g. AWS
-                                    GuardDuty, Azure Sentinel), and IDS/IPS into one console—with parsing,
-                                    normalization, deduplication, and AI-assisted correlation to reduce noise.</p>
+                                <h6>{{ $whyItem['title'] ?? '' }}</h6>
+                                <p class="mb-0">{{ $whyItem['body'] ?? '' }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div
-                            class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
-                                    aria-hidden="true">
-                                    <iconify-icon icon="solar:clipboard-list-bold-duotone"
-                                                  class="fs-40"></iconify-icon>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6>Ticket &amp; task lifecycle</h6>
-                                <p class="mb-0">Enriched tickets for platforms like ServiceNow and Jira—IOCs, risk
-                                    scores, MITRE TTP context, assignments by skill and workload—plus structured
-                                    tasks, Kanban views, SLAs, and notifications across email, Slack, and Microsoft
-                                    Teams.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div
-                            class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
-                                    aria-hidden="true">
-                                    <iconify-icon icon="solar:settings-bold-duotone" class="fs-40"></iconify-icon>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6>Service management backbone</h6>
-                                <p class="mb-0">Centralized configuration for categories, priorities, statuses,
-                                    processes, policies, services, and roles—so the same operational model flows from
-                                    alert triage through task execution and audit-ready logging.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div
-                            class="d-flex flex-column flex-md-row gap-4 gap-xl-8 align-items-md-center px-xl-10 px-xxl-15 py-xl-10">
-                            <div class="flex-shrink-0">
-                                <div
-                                    class="rounded-3 bg-primary-subtle text-primary d-grid place-content-center about-2__separator-icon"
-                                    aria-hidden="true">
-                                    <iconify-icon icon="mingcute:ai-fill" class="fs-40"></iconify-icon>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h6>Zarqaa AI: agentic, not just playbooks</h6>
-                                <p class="mb-0">Unlike fixed SOAR scripts (if A then B), agentic AI reasons across
-                                    signals—e.g. correlating a login with Jira and Slack—to decide next steps. The
-                                    Zarqaa assistant acts as a virtual L1 analyst: recommendations, routine analysis,
-                                    and 24/7 coverage without burning out your team.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -269,14 +209,10 @@
                                     class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
                                     <iconify-icon icon="uim:check-circle"
                                                   class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                    <span class="d-inline-block flex-grow-1 fw-medium"> Timeline </span>
+                                    <span class="d-inline-block flex-grow-1 fw-medium"> {{ $a['story']['badge'] ?? '' }} </span>
                                 </span>
-                            <h3>Our story</h3>
-                            <p class="mb-0">Cyberwatch360 exists because modern SOCs drown in disconnected tools
-                                and alert noise. We combine a unified operations layer with AI that prioritizes real
-                                incidents, explains its actions, and scales from lean MSSPs to large regulated
-                                enterprises—especially where digital transformation and compliance (e.g. SAMA,
-                                national cyber frameworks) raise the bar.</p>
+                            <h3>{{ $a['story']['title'] ?? '' }}</h3>
+                            <p class="mb-0">{{ $a['story']['intro'] ?? '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -285,55 +221,22 @@
                 <div class="row g-4 justify-content-xl-between">
                     <div class="col-lg-6 col-xl-5">
                         <div class="timeline-1">
+                            @foreach ($a['story']['timeline'] ?? [] as $tl)
                             <div class="timeline-1__item">
                                 <div class="timeline-1__left">
-                                    <h6 class="fw-semibold fs-20 mb-md-0">Unify</h6>
+                                    <h6 class="fw-semibold fs-20 mb-md-0">{{ $tl['left'] ?? '' }}</h6>
                                 </div>
                                 <div class="timeline-1__right">
-                                    <h6>One console for the SOC</h6>
-                                    <p class="mb-0">Bring alerts, tickets, and tasks together instead of juggling
-                                        siloed SIEM, EDR, and ITSM screens—so critical incidents are less likely to
-                                        be missed or mishandled.</p>
+                                    <h6>{{ $tl['right_title'] ?? '' }}</h6>
+                                    <p class="mb-0">{{ $tl['right_body'] ?? '' }}</p>
                                 </div>
                             </div>
-                            <div class="timeline-1__item">
-                                <div class="timeline-1__left">
-                                    <h6 class="fw-semibold fs-20 mb-md-0">Automate</h6>
-                                </div>
-                                <div class="timeline-1__right">
-                                    <h6>From alert to structured response</h6>
-                                    <p class="mb-0">Ingest via REST, webhooks, syslog, or email; normalize fields;
-                                        deduplicate and correlate; auto-generate enriched tickets with IOCs, risk
-                                        scores, and MITRE mappings.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-1__item">
-                                <div class="timeline-1__left">
-                                    <h6 class="fw-semibold fs-20 mb-md-0">Zarqaa</h6>
-                                </div>
-                                <div class="timeline-1__right">
-                                    <h6>Agentic AI with proof</h6>
-                                    <p class="mb-0">Zarqaa reasons across tools and context like a fast, efficient
-                                        analyst—not a rigid playbook. Every action can be traced in a reasoning log
-                                        so you trust why an alert was closed as false positive or escalated.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-1__item">
-                                <div class="timeline-1__left">
-                                    <h6 class="fw-semibold fs-20 mb-md-0">Scale</h6>
-                                </div>
-                                <div class="timeline-1__right">
-                                    <h6>MENA &amp; beyond</h6>
-                                    <p class="mb-0">Purpose-built for organizations facing alert overload, fragmented
-                                        workflows, and talent gaps—from MSSPs needing multi-tenant efficiency to
-                                        SMEs that need a security copilot without a 24/7 SOC.</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img src="{{ asset('assets/img/timeline-img.png') }}"
-                             alt="Cyberwatch360 dashboard showing alerts, MTTA, and status charts"
+                        <img src="{{ $media($a['story']['side_image'] ?? null) }}"
+                             alt="{{ $a['story']['side_alt'] ?? '' }}"
                              class="img-fluid rounded-3">
                     </div>
                 </div>
@@ -341,44 +244,20 @@
             <div class="section-space-y">
                 <div class="container">
                     <div class="row g-4 justify-content-center">
+                        @foreach ($a['story']['highlights'] ?? [] as $hl)
                         <div class="col-md-6 col-lg-4">
                             <div
                                 class="d-flex align-items-center gap-4 gap-xl-6 rounded-4 p-4 py-sm-4 py-xl-6 py-xxl-8 px-sm-8 px-lg-4 px-xl-8 px-xxl-10 bg-light-subtle shadow-sm">
                                 <div class="flex-grow-1">
-                                    <h4 class="mb-2">100%</h4>
-                                    <p class="mb-0">Alert coverage goal—no alert left uninvestigated</p>
+                                    <h4 class="mb-2">{{ $hl['value'] ?? '' }}</h4>
+                                    <p class="mb-0">{{ $hl['label'] ?? '' }}</p>
                                 </div>
                                 <div class="flex-shrink-0">
-                                    <iconify-icon icon="fluent-emoji:handshake" class="h3 mb-0"></iconify-icon>
+                                    <iconify-icon icon="{{ $hl['icon'] ?? 'mdi:information' }}" class="h3 mb-0"></iconify-icon>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div
-                                class="d-flex align-items-center gap-4 gap-xl-6 rounded-4 p-4 py-sm-4 py-xl-6 py-xxl-8 px-sm-8 px-lg-4 px-xl-8 px-xxl-10 bg-light-subtle shadow-sm">
-                                <div class="flex-grow-1">
-                                    <h4 class="mb-2">24/7</h4>
-                                    <p class="mb-0">AI assistant vigilance as a virtual L1 analyst</p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <iconify-icon icon="fluent-emoji:trophy" class="h3 mb-0"></iconify-icon>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div
-                                class="d-flex align-items-center gap-4 gap-xl-6 rounded-4 p-4 py-sm-4 py-xl-6 py-xxl-8 px-sm-8 px-lg-4 px-xl-8 px-xxl-10 bg-light-subtle shadow-sm">
-                                <div class="flex-grow-1">
-                                    <h4 class="mb-2">~70%</h4>
-                                    <p class="mb-0">Industry studies cite triage consuming most analyst time—we target
-                                        that waste</p>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <iconify-icon icon="emojione-v1:smiling-face-with-halo"
-                                                  class="h3 mb-0"></iconify-icon>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -391,9 +270,9 @@
                                         class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
                                         <iconify-icon icon="uim:check-circle"
                                                       class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                        <span class="d-inline-block flex-grow-1 fw-medium"> Audience </span>
+                                        <span class="d-inline-block flex-grow-1 fw-medium"> {{ $a['who_we_build']['badge'] ?? '' }} </span>
                                     </span>
-                                <h3 class="mb-0 mx-auto">Who we build for</h3>
+                                <h3 class="mb-0 mx-auto">{{ $a['who_we_build']['title'] ?? '' }}</h3>
                             </div>
                         </div>
                     </div>
@@ -402,11 +281,12 @@
             {{-- Audience photos --}}
             <div class="container">
                 <div class="row g-4">
+                    @foreach ($a['who_we_build']['cards'] ?? [] as $aud)
                     <div class="col-sm-6 col-lg-3">
                         <div class="team-member-1">
                             <div class="rounded overflow-hidden">
-                                <img src="{{ asset('assets/img/audience/audience-ciso.jpg') }}"
-                                     alt="Executive leader representing a CISO economic buyer"
+                                <img src="{{ $media($aud['image'] ?? null) }}"
+                                     alt="{{ $aud['image_alt'] ?? '' }}"
                                      class="w-100 h-100 object-fit-cover transition team-member-1__img">
                             </div>
                             <div
@@ -414,9 +294,8 @@
                                 <div
                                     class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
                                     <div class="flex-grow-1">
-                                        <span class="d-block fw-bold text-heading">Economic buyer: CISO</span>
-                                        <p class="mb-0 fs-12">Governance, compliance, cost control, and measurable
-                                            SOC performance.</p>
+                                        <span class="d-block fw-bold text-heading">{{ $aud['heading'] ?? '' }}</span>
+                                        <p class="mb-0 fs-12">{{ $aud['body'] ?? '' }}</p>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <a href="{{ route('contact') }}"
@@ -428,84 +307,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="team-member-1">
-                            <div class="rounded overflow-hidden">
-                                <img src="{{ asset('assets/img/audience/audience-soc-lead.jpg') }}"
-                                     alt="Professional in business attire representing a SOC manager or team lead"
-                                     class="w-100 h-100 object-fit-cover transition team-member-1__img">
-                            </div>
-                            <div
-                                class="team-member-1__content px-2 px-sm-4 px-xl-2 px-xxl-4 z-1 position-relative">
-                                <div
-                                    class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
-                                    <div class="flex-grow-1">
-                                        <span class="d-block fw-bold text-heading">Daily user: SOC lead</span>
-                                        <p class="mb-0 fs-12">High alert volume, SLA pressure, and need for
-                                            prioritization without burning out analysts.</p>
-                                    </div>
-                                    <div class="flex-shrink-0">
-                                        <a href="{{ route('contact') }}"
-                                           class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
-                                            <iconify-icon icon="guidance:left-arrow"></iconify-icon>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="team-member-1">
-                            <div class="rounded overflow-hidden">
-                                <img src="{{ asset('assets/img/audience/audience-mssp.jpg') }}"
-                                     alt="Collaborating technology team representing MSSP delivery"
-                                     class="w-100 h-100 object-fit-cover transition team-member-1__img">
-                            </div>
-                            <div
-                                class="team-member-1__content px-2 px-sm-4 px-xl-2 px-xxl-4 z-1 position-relative">
-                                <div
-                                    class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
-                                    <div class="flex-grow-1">
-                                        <span class="d-block fw-bold text-heading">MSSP &amp; multi-tenant</span>
-                                        <p class="mb-0 fs-12">Lean teams serving many clients need segregation,
-                                            centralized visibility, and fast deployment.</p>
-                                    </div>
-                                    <div class="flex-shrink-0">
-                                        <a href="{{ route('contact') }}"
-                                           class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
-                                            <iconify-icon icon="guidance:left-arrow"></iconify-icon>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="team-member-1">
-                            <div class="rounded overflow-hidden">
-                                <img src="{{ asset('assets/img/audience/audience-sme.jpg') }}"
-                                     alt="Small team discussion representing an SME security or IT group"
-                                     class="w-100 h-100 object-fit-cover transition team-member-1__img">
-                            </div>
-                            <div
-                                class="team-member-1__content px-2 px-sm-4 px-xl-2 px-xxl-4 z-1 position-relative">
-                                <div
-                                    class="d-flex align-items-center gap-3 rounded bg-light-subtle p-4 px-sm-6 px-lg-4 shadow-sm">
-                                    <div class="flex-grow-1">
-                                        <span class="d-block fw-bold text-heading">SME security teams</span>
-                                        <p class="mb-0 fs-12">Small groups covering multiple roles need a copilot to
-                                            multiply impact—especially with a SIEM but no full SOC.</p>
-                                    </div>
-                                    <div class="flex-shrink-0">
-                                        <a href="{{ route('contact') }}"
-                                           class="btn btn-sm btn-icon btn-primary-subtle rounded-circle">
-                                            <iconify-icon icon="guidance:left-arrow"></iconify-icon>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -520,9 +322,9 @@
                                     class="btn btn-sm align-items-center bg-primary-emphasis hover:bg-primary-emphasis text-primary-subtle hover:text-primary-subtle cursor-default mb-4">
                                     <iconify-icon icon="uim:check-circle"
                                                   class="align-middle fs-20 flex-shrink-0"></iconify-icon>
-                                    <span class="d-inline-block flex-grow-1 fw-medium"> Testimonials </span>
+                                    <span class="d-inline-block flex-grow-1 fw-medium"> {{ $a['testimonials']['badge'] ?? '' }} </span>
                                 </span>
-                            <h3 class="mb-0">What security leaders are solving with CW360</h3>
+                            <h3 class="mb-0">{{ $a['testimonials']['title'] ?? '' }}</h3>
                         </div>
                     </div>
                 </div>
@@ -533,25 +335,20 @@
                         <div class="col-12">
                             <div class="swiper testimonial-slider-1">
                                 <div class="swiper-wrapper">
-                                    @foreach ([
-                                        ['img' => 'testimonial-avatars/1.jpg', 'name' => 'CISO perspective', 'role' => 'Regulated enterprise', 'quote' => 'We are measured on risk reduction and cost. CW360 aligns with that: fewer tools to string together, faster response, and AI that augments the team instead of adding another black box.'],
-                                        ['img' => 'testimonial-avatars/2.jpg', 'name' => 'SOC manager perspective', 'role' => 'High-volume operations', 'quote' => 'The nightmare is a real attack hiding in thousands of false positives. Agentic investigation with a reasoning log beats “select all and close” every time.'],
-                                        ['img' => 'testimonial-avatars/3.jpg', 'name' => 'MSSP perspective', 'role' => 'Multi-tenant delivery', 'quote' => 'We need quick onboarding per tenant and centralized control. A unified incident stack beats paying for fragmented SOAR, SIEM consoles, and ITSM glue code.'],
-                                        ['img' => 'testimonial-avatars/4.jpg', 'name' => 'Security engineer perspective', 'role' => 'Integration-focused', 'quote' => 'REST, webhooks, syslog, and email ingestion matter. We can connect modern and legacy sources without a six-month services project.'],
-                                    ] as $t)
+                                    @foreach ($a['testimonials']['slider1'] ?? [] as $t)
                                         <div class="swiper-slide">
                                             <div class="bg-light-subtle shadow-lg rounded-4 p-6 p-md-8 m-4">
-                                                <p class="mb-6 text-heading">{{ $t['quote'] }}</p>
+                                                <p class="mb-6 text-heading">{{ $t['quote'] ?? '' }}</p>
                                                 <div class="d-flex align-items-center gap-4">
                                                     <div class="flex-shrink-0">
-                                                        <img src="{{ asset('assets/img/' . $t['img']) }}"
-                                                             alt="{{ $t['name'] }}"
+                                                        <img src="{{ $media($t['img'] ?? null) }}"
+                                                             alt="{{ $t['name'] ?? '' }}"
                                                              class="img-fluid rounded-circle testimonial-section-1__avatar">
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <p class="mb-1 fw-semibold text-heading">
-                                                            {{ $t['name'] }} </p>
-                                                        <span class="d-block fs-14">{{ $t['role'] }}</span>
+                                                            {{ $t['name'] ?? '' }} </p>
+                                                        <span class="d-block fs-14">{{ $t['role'] ?? '' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -563,25 +360,20 @@
                         <div class="col-12">
                             <div class="swiper testimonial-slider-2">
                                 <div class="swiper-wrapper">
-                                    @foreach ([
-                                        ['img' => 'testimonial-avatars/5.jpg', 'name' => 'Outcome: MTTR', 'role' => 'Operational KPI', 'quote' => 'Consolidating triage, enrichment, ticketing, and tasks removes hand‑offs that inflate mean time to respond.'],
-                                        ['img' => 'testimonial-avatars/6.jpg', 'name' => 'Outcome: coverage', 'role' => 'SOC quality bar', 'quote' => 'We aim for full alert coverage—investigate everything, prioritize correctly, and document why.'],
-                                        ['img' => 'testimonial-avatars/7.jpg', 'name' => 'Outcome: playbooks', 'role' => 'Automation strategy', 'quote' => 'Traditional SOAR is brittle. Agentic reasoning with transparent logs reduces playbook authoring and constant maintenance.'],
-                                        ['img' => 'testimonial-avatars/8.jpg', 'name' => 'MENA context', 'role' => 'Compliance & national programs', 'quote' => 'Vision 2030-class initiatives and frameworks like SAMA raise the bar. We need platforms that match that urgency.'],
-                                    ] as $t)
+                                    @foreach ($a['testimonials']['slider2'] ?? [] as $t)
                                         <div class="swiper-slide">
                                             <div class="bg-light-subtle shadow-lg rounded-4 p-6 p-md-8 m-4">
-                                                <p class="mb-6 text-heading">{{ $t['quote'] }}</p>
+                                                <p class="mb-6 text-heading">{{ $t['quote'] ?? '' }}</p>
                                                 <div class="d-flex align-items-center gap-4">
                                                     <div class="flex-shrink-0">
-                                                        <img src="{{ asset('assets/img/' . $t['img']) }}"
-                                                             alt="{{ $t['name'] }}"
+                                                        <img src="{{ $media($t['img'] ?? null) }}"
+                                                             alt="{{ $t['name'] ?? '' }}"
                                                              class="img-fluid rounded-circle testimonial-section-1__avatar">
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <p class="mb-1 fw-semibold text-heading">
-                                                            {{ $t['name'] }} </p>
-                                                        <span class="d-block fs-14">{{ $t['role'] }}</span>
+                                                            {{ $t['name'] ?? '' }} </p>
+                                                        <span class="d-block fs-14">{{ $t['role'] ?? '' }}</span>
                                                     </div>
                                                 </div>
                                             </div>
