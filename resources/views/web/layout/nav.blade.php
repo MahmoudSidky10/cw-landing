@@ -33,36 +33,6 @@
             </ul>
 
 
-                 <div class="d-flex align-items-center gap-3 ms-lg-auto">
-                <div class="dropdown dropdown-modifier dropdown-xsm order-lg-1 theme-settings">
-                    <button class="btn dropdown-toggle px-4 px-lg-0 fs-14 border-0 align-items-center gap-1"
-                            type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <iconify-icon id="themeDropdownIcon" icon="bi:moon-stars"></iconify-icon>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light mw-unset">
-                        <li>
-                            <button type="button" class="dropdown-item d-flex align-items-center gap-2 fs-14"
-                                    id="lightTheme">
-                                    <span class="d-block flex-shrink-0">
-                                        <iconify-icon icon="bi:sun"></iconify-icon>
-                                    </span>
-                                <span class="d-block flex-grow-1"> Light </span>
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" class="dropdown-item d-flex align-items-center gap-2 fs-14"
-                                    id="darkTheme">
-                                    <span class="d-block flex-shrink-0">
-                                        <iconify-icon icon="bi:moon-stars"></iconify-icon>
-                                    </span>
-                                <span class="d-block flex-grow-1"> Dark </span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-
-
         </div>
     </div>
 </nav>
