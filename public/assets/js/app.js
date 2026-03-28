@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         themeDropdown.addEventListener("click", function (e) {
             var target = e.target.closest("#lightTheme, #darkTheme");
             if (!target) return;
-            var theme = target.id === "lightTheme" ? "light" : "dark";
+            var theme = "dark";
             document.documentElement.setAttribute("data-bs-theme", theme);
             localStorage.setItem("theme", theme);
             updateThemeIcon(theme);
