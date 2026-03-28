@@ -33,7 +33,7 @@
             </ul>
 
 
-            {{--     <div class="d-flex align-items-center gap-3 ms-lg-auto">
+                 <div class="d-flex align-items-center gap-3 ms-lg-auto">
                 <div class="dropdown dropdown-modifier dropdown-xsm order-lg-1 theme-settings">
                     <button class="btn dropdown-toggle px-4 px-lg-0 fs-14 border-0 align-items-center gap-1"
                             type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,7 +61,7 @@
                     </ul>
                 </div>
                 </div>
-            --}}
+
 
         </div>
     </div>
