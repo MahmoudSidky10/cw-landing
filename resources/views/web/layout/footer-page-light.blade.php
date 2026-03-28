@@ -6,9 +6,9 @@
                             <div class="col-md-7 col-lg-4">
                                 <div class="pe-xxl-10">
                                     <a class="logo d-inline-flex mb-6" href="{{ route('home') }}">
-                                        <img src="{{ asset('assets/img/logo-dark.png') }}" alt="Cyberwatch360"
+                                        <img src="{{ $siteLogoDark }}" alt="Cyberwatch360"
                                             class="logo__img logo__img--light">
-                                        <img src="{{ asset('assets/img/logo-light.png') }}" alt="Cyberwatch360"
+                                        <img src="{{ $siteLogoLight }}" alt="Cyberwatch360"
                                             class="logo__img logo__img--dark">
                                     </a>
                                     <p class="mb-8">Cyberwatch360 unifies alerts, ticketing, and SOC work—augmented by Zarqaa AI—for teams that need speed, clarity, and audit-ready operations.</p>

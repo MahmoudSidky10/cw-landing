@@ -15,6 +15,8 @@ class SiteSetting extends Model
         'email',
         'address',
         'address_2',
+        'logo',
+        'logo_dark',
         'home_features_title_line1',
         'home_features_title_highlight',
         'home_features_blocks',
@@ -41,6 +43,27 @@ class SiteSetting extends Model
             'address'   => '',
             'address_2' => '',
         ]);
+    }
+
+    public function resolvedLogoUrl(): string
+    {
+        $v = trim((string) $this->logo);
+
+        return $v !== '' ? static::featureImageUrl($v) : asset('assets/img/logo/PNG 1 HQ.png');
+    }
+
+    public function resolvedLogoDarkUrl(): string
+    {
+        $v = trim((string) $this->logo_dark);
+
+        return $v !== '' ? static::featureImageUrl($v) : asset('assets/img/logo-dark.png');
+    }
+
+    public function resolvedLogoLightUrl(): string
+    {
+        $v = trim((string) $this->logo);
+
+        return $v !== '' ? static::featureImageUrl($v) : asset('assets/img/logo-light.png');
     }
 
     public static function defaultHomeFeaturesTitleLine1(): string
@@ -321,7 +344,7 @@ class SiteSetting extends Model
         if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
             return $path;
         }
-        if (preg_match('#^(home-features|blogs|social-media|about-page)/#', $path)) {
+        if (preg_match('#^(home-features|blogs|social-media|about-page|logos)/#', $path)) {
             return Storage::disk('public')->url($path);
         }
 
@@ -399,7 +422,7 @@ class SiteSetting extends Model
         if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
             return $path;
         }
-        if (preg_match('#^(home-features|blogs|social-media|about-page)/#', $path)) {
+        if (preg_match('#^(home-features|blogs|social-media|about-page|logos)/#', $path)) {
             return Storage::disk('public')->url($path);
         }
         if (str_starts_with($path, 'assets/')) {

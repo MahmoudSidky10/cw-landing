@@ -85,6 +85,42 @@
 
                                     <hr class="my-10">
 
+                                    <h4 class="fw-bold text-dark mb-1">Site Logo</h4>
+                                    <p class="text-muted fs-13 mb-6">Upload your site logos. The main logo is used in the navbar and hero. The dark variant is used in footers on light backgrounds.</p>
+
+                                    <div class="row mb-5">
+                                        <div class="col-md-6">
+                                            <div class="card border mb-5">
+                                                <div class="card-header bg-light"><strong>Main Logo</strong></div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <img src="{{ $settings->resolvedLogoUrl() }}" alt="Current logo" style="max-height:80px;border-radius:8px;background:#1a1a2e;padding:8px;">
+                                                    </div>
+                                                    <input type="file" name="logo_upload" class="form-control" accept="image/*">
+                                                    @error('logo_upload')
+                                                        <div class="text-danger fs-12 mt-1">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card border mb-5">
+                                                <div class="card-header bg-light"><strong>Dark Logo <span class="text-muted fw-normal">(for light backgrounds)</span></strong></div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <img src="{{ $settings->resolvedLogoDarkUrl() }}" alt="Current dark logo" style="max-height:80px;border-radius:8px;background:#f5f5f5;padding:8px;">
+                                                    </div>
+                                                    <input type="file" name="logo_dark_upload" class="form-control" accept="image/*">
+                                                    @error('logo_dark_upload')
+                                                        <div class="text-danger fs-12 mt-1">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-10">
+
                                     <h4 class="fw-bold text-dark mb-1">Home — Security operations section</h4>
                                     <p class="text-muted fs-13 mb-6">Title and cards under “Manage Security Operations…” on the homepage. For link fields, use a route name (e.g. <code>about</code>, <code>contact</code>) or leave empty for “#”. Images: upload a file or set a path such as <code>assets/img/cw/cw-threat-monitor.jpg</code>.</p>
 

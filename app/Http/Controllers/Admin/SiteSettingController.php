@@ -53,6 +53,8 @@ class SiteSettingController extends Controller
             'about_t2_1_upload'             => 'nullable|image|max:8192',
             'about_t2_2_upload'             => 'nullable|image|max:8192',
             'about_t2_3_upload'             => 'nullable|image|max:8192',
+            'logo_upload'                   => 'nullable|image|max:8192',
+            'logo_dark_upload'              => 'nullable|image|max:8192',
         ]);
 
         $settings = SiteSetting::instance();
@@ -67,6 +69,14 @@ class SiteSettingController extends Controller
             $heroImage = $settings->home_features2_hero_image ?? SiteSetting::defaultHomeFeatures2HeroImage();
         }
 
+        $logoData = [];
+        if ($request->hasFile('logo_upload')) {
+            $logoData['logo'] = $request->file('logo_upload')->store('logos', 'public');
+        }
+        if ($request->hasFile('logo_dark_upload')) {
+            $logoData['logo_dark'] = $request->file('logo_dark_upload')->store('logos', 'public');
+        }
+
         $settings->update(array_merge(
             $request->only(
                 'phone',
@@ -79,6 +89,7 @@ class SiteSettingController extends Controller
                 'home_features2_title_highlight',
                 'home_features2_hero_alt'
             ),
+            $logoData,
             [
                 'home_features_blocks'      => $blocks,
                 'home_features2_cards'      => $blocks2,

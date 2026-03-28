@@ -50,7 +50,7 @@
                                     <div class="row g-4 g-lg-5 align-items-center">
                                         <div class="col-md-auto text-center text-md-start">
                                             <div class="hero-5-cta-card__logo mx-auto mx-md-0">
-                                                <img src="{{ asset('assets/img/logo/PNG 1 HQ.png') }}"
+                                                <img src="{{ $siteLogo }}"
                                                     alt="Cyberwatch360" class="hero-5-cta-card__logo-img img-fluid">
                                             </div>
                                         </div>

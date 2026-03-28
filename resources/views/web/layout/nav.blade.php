@@ -2,8 +2,8 @@
     class="navbar navbar-expand-lg primary-header {{ $navClass ?? 'primary-header--transparent-light-alt primary-header--fixed top-lg-12 primary-header-crossed:top-0' }}">
     <div class="container align-items-lg-center">
         <a class="logo" href="{{ route('home') }}">
-            <img src="{{ asset('assets/img/logo/PNG 1 HQ.png') }}" alt="logo" class="logo__img logo__img--light">
-            <img src="{{ asset('assets/img/logo/PNG 1 HQ.png') }}" alt="logo" class="logo__img logo__img--dark">
+            <img src="{{ $siteLogo }}" alt="logo" class="logo__img logo__img--light">
+            <img src="{{ $siteLogo }}" alt="logo" class="logo__img logo__img--dark">
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar0"
                 aria-controls="navbar0" aria-expanded="false" aria-label="Toggle navigation">
