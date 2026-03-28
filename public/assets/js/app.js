@@ -151,14 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.setAttribute("data-bs-theme", currentTheme);
     updateThemeIcon("dark");
     if (themeDropdown) {
-        themeDropdown.addEventListener("click", function (e) {
-            var target = e.target.closest("#lightTheme, #darkTheme");
-            if (!target) return;
-            var theme = "dark";
-            document.documentElement.setAttribute("data-bs-theme", theme);
-            localStorage.setItem("theme", theme);
-            updateThemeIcon(theme);
-        });
+        updateThemeIcon("dark");
     }
 
     function updateThemeIcon(theme) {

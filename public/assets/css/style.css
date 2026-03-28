@@ -9227,6 +9227,10 @@ small,
     --bs-primary-text-emphasis: #01b7f7;
     --bs-primary-bg-subtle: #01456e;
     --bs-primary-border-subtle: #01456e;
+    --bs-link-color: #01b7f7;
+    --bs-link-color-rgb: 1, 183, 247;
+    --bs-link-hover-color: #0166ba;
+    --bs-link-hover-color-rgb: 1, 102, 186;
 }
 [data-bs-theme=dark][data-theme=home-4] {
     --bs-primary: #5c65ff;
