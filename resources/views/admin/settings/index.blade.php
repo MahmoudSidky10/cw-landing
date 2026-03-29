@@ -314,6 +314,18 @@
 
                                     @include('admin.settings.about-page', ['about' => $about])
 
+                                    <hr class="my-10">
+
+                                    <h4 class="fw-bold text-dark mb-1">Privacy Policy</h4>
+                                    <p class="text-muted fs-13 mb-6">Edit the privacy policy page content using the rich-text editor below.</p>
+
+                                    <div class="form-group mb-5">
+                                        <textarea id="privacy_policy_editor" name="privacy_policy" class="form-control" rows="15">{!! old('privacy_policy', $settings->privacy_policy) !!}</textarea>
+                                        @error('privacy_policy')
+                                            <div class="text-danger fs-12 mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
                                     <button type="submit" class="btn btn-primary px-8">
                                         <i class="fa fa-save me-2"></i> Save Settings
                                     </button>
@@ -327,4 +339,26 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/admin/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            if ($("#privacy_policy_editor").length > 0) {
+                tinymce.init({
+                    selector: "textarea#privacy_policy_editor",
+                    theme: "modern",
+                    height: 500,
+                    directionality: 'ltr',
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | code",
+                });
+            }
+        });
+    </script>
 @endsection

@@ -55,6 +55,7 @@ class SiteSettingController extends Controller
             'about_t2_3_upload'             => 'nullable|image|max:8192',
             'logo_upload'                   => 'nullable|image|max:8192',
             'logo_dark_upload'              => 'nullable|image|max:8192',
+            'privacy_policy'                => 'nullable|string',
         ]);
 
         $settings = SiteSetting::instance();
@@ -87,7 +88,8 @@ class SiteSettingController extends Controller
                 'home_features_title_highlight',
                 'home_features2_title_line1',
                 'home_features2_title_highlight',
-                'home_features2_hero_alt'
+                'home_features2_hero_alt',
+                'privacy_policy'
             ),
             $logoData,
             [

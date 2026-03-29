@@ -26,6 +26,7 @@ class SiteSetting extends Model
         'home_features2_hero_alt',
         'home_features2_cards',
         'about_content',
+        'privacy_policy',
     ];
 
     protected $casts = [

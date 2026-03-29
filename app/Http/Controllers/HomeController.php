@@ -131,7 +131,10 @@ class HomeController extends Controller
 
     public function privacyPolicy()
     {
-        return view('web.privacy-policy');
+        $settings = \App\Models\SiteSetting::instance();
+        $privacyPolicy = $settings->privacy_policy;
+
+        return view('web.privacy-policy', compact('privacyPolicy'));
     }
 
 }
