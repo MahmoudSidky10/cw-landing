@@ -56,6 +56,8 @@ class SiteSettingController extends Controller
             'logo_upload'                   => 'nullable|image|max:8192',
             'logo_dark_upload'              => 'nullable|image|max:8192',
             'privacy_policy'                => 'nullable|string',
+            'hero_image'                    => 'nullable|string|max:500',
+            'hero_image_upload'             => 'nullable|image|max:8192',
         ]);
 
         $settings = SiteSetting::instance();
@@ -68,6 +70,13 @@ class SiteSettingController extends Controller
             $heroImage = $request->file('feature2_hero_image')->store('home-features', 'public');
         } elseif ($heroImage === '') {
             $heroImage = $settings->home_features2_hero_image ?? SiteSetting::defaultHomeFeatures2HeroImage();
+        }
+
+        $heroImagePath = trim((string) $request->input('hero_image', ''));
+        if ($request->hasFile('hero_image_upload')) {
+            $heroImagePath = $request->file('hero_image_upload')->store('home-features', 'public');
+        } elseif ($heroImagePath === '') {
+            $heroImagePath = $settings->hero_image ?? SiteSetting::defaultHeroImage();
         }
 
         $logoData = [];
@@ -97,6 +106,7 @@ class SiteSettingController extends Controller
                 'home_features2_cards'      => $blocks2,
                 'home_features2_hero_image' => $heroImage,
                 'about_content'             => $about,
+                'hero_image'                => $heroImagePath,
             ]
         ));
 

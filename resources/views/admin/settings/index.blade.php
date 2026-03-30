@@ -121,6 +121,33 @@
 
                                     <hr class="my-10">
 
+                                    <h4 class="fw-bold text-dark mb-1">Home — Hero Image</h4>
+                                    <p class="text-muted fs-13 mb-6">Control the main hero image displayed at the top of the homepage.</p>
+
+                                    <div class="card border mb-5">
+                                        <div class="card-header bg-light"><strong>Hero image</strong></div>
+                                        <div class="card-body">
+                                            @php
+                                                $heroImgPath = old('hero_image', $settings->hero_image ?: \App\Models\SiteSetting::defaultHeroImage());
+                                            @endphp
+                                            @if ($heroImgPath)
+                                                <div class="mb-3"><img src="{{ \App\Models\SiteSetting::featureImageUrl($heroImgPath) }}" alt="" style="max-height:160px;border-radius:8px;"></div>
+                                            @endif
+                                            <div class="form-group mb-4">
+                                                <label class="fw-bold text-dark mb-2">Upload image</label>
+                                                <input type="file" name="hero_image_upload" class="form-control" accept="image/*">
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label class="fw-bold text-dark mb-2">Image path (or leave after upload)</label>
+                                                <input type="text" name="hero_image" class="form-control"
+                                                    value="{{ $heroImgPath }}"
+                                                    placeholder="{{ \App\Models\SiteSetting::defaultHeroImage() }}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-10">
+
                                     <h4 class="fw-bold text-dark mb-1">Home — Security operations section</h4>
                                     <p class="text-muted fs-13 mb-6">Title and cards under “Manage Security Operations…” on the homepage. For link fields, use a route name (e.g. <code>about</code>, <code>contact</code>) or leave empty for “#”. Images: upload a file or set a path such as <code>assets/img/cw/cw-threat-monitor.jpg</code>.</p>
 

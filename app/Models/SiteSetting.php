@@ -27,6 +27,7 @@ class SiteSetting extends Model
         'home_features2_cards',
         'about_content',
         'privacy_policy',
+        'hero_image',
     ];
 
     protected $casts = [
@@ -65,6 +66,19 @@ class SiteSetting extends Model
         $v = trim((string) $this->logo);
 
         return $v !== '' ? static::featureImageUrl($v) : asset('assets/img/logo-light.png');
+    }
+
+    // ── Hero image defaults & resolvers ────────────────────────────
+
+    public static function defaultHeroImage(): string
+    {
+        return 'assets/img/hero-0-0.jpg';
+    }
+
+    public function resolvedHeroImage(): string
+    {
+        $v = trim((string) $this->hero_image);
+        return $v !== '' ? $v : static::defaultHeroImage();
     }
 
     public static function defaultHomeFeaturesTitleLine1(): string
